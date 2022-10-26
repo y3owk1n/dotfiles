@@ -82,13 +82,6 @@ keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git co
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
--- telescope auto session
-keymap.set("n", "<leader>fas", ":SearchSession<CR>") -- search for a session
-
--- auto session
-keymap.set("n", "<leader>ss", ":SaveSession<CR>") -- save a session
-keymap.set("n", "<leader>sx", ":DeleteSession<CR>") -- delete a session
-
 -- harpoon
 keymap.set("n", "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<CR>")
 keymap.set("n", "<leader>he", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")

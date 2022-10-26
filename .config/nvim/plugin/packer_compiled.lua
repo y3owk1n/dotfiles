@@ -89,11 +89,6 @@ _G.packer_plugins = {
     path = "/Users/kyle/.local/share/nvim/site/pack/packer/start/ReplaceWithRegister",
     url = "https://github.com/vim-scripts/ReplaceWithRegister"
   },
-  ["auto-session"] = {
-    loaded = true,
-    path = "/Users/kyle/.local/share/nvim/site/pack/packer/start/auto-session",
-    url = "https://github.com/rmagatti/auto-session"
-  },
   ["cinnamon.nvim"] = {
     loaded = true,
     path = "/Users/kyle/.local/share/nvim/site/pack/packer/start/cinnamon.nvim",
@@ -234,11 +229,6 @@ _G.packer_plugins = {
     path = "/Users/kyle/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["session-lens"] = {
-    loaded = true,
-    path = "/Users/kyle/.local/share/nvim/site/pack/packer/start/session-lens",
-    url = "https://github.com/rmagatti/session-lens"
-  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/Users/kyle/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -248,11 +238,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/kyle/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["trouble.nvim"] = {
-    loaded = true,
-    path = "/Users/kyle/.local/share/nvim/site/pack/packer/start/trouble.nvim",
-    url = "https://github.com/folke/trouble.nvim"
   },
   ["typescript.nvim"] = {
     loaded = true,

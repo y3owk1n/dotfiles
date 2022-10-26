@@ -1,4 +1,3 @@
--- auto install packer if not installed
 local ensure_packer = function()
 	local fn = vim.fn
 	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -86,7 +85,6 @@ return packer.startup(function(use)
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
 	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
-	use("folke/trouble.nvim") -- pretty list for showing diagnostics, references, telescope results, quickfix and location lists
 
 	-- treesitter configuration
 	use({
@@ -112,10 +110,6 @@ return packer.startup(function(use)
 
 	-- indent blankline
 	use("lukas-reineke/indent-blankline.nvim")
-
-	-- auto session
-	use("rmagatti/auto-session")
-	use("rmagatti/session-lens") -- add auto session to telescope
 
 	-- harpoon
 	use("ThePrimeagen/harpoon") -- project markings
