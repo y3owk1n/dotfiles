@@ -137,3 +137,28 @@ alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 # general
 alias config="vi $HOME/.zshrc"
 alias reload="source $HOME/.zshrc"
+
+# ls alias to exa
+alias ls="exa"
+alias lsa="exa -all"
+
+# tmux alias
+alias tmn="tmux new -s"
+alias tma="tmux attach -t"
+alias tmd="tmux detach"
+alias tmxa="tmux kill-session"
+alias tmx="tmux kill-session -t"
+alias tmls="tmux ls"
+
+# git alias
+alias gs="git status"
+alias ga="git add"
+alias gaa="git add ."
+alias gc="git commit -m"
+alias gp="git push"
+
+# yadm alias for dot files
+alias ds="yadm status"
+alias da="yadm add"
+alias dc="yadm commit -m"
+alias dp="yadm push"
