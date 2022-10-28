@@ -12,7 +12,6 @@ local keymap = vim.keymap -- for conciseness
 -- visual mode = "v"
 -- visual block mode = "x"
 -- term mode = "t"
--- command mode = "c"
 
 ---------------------
 -- General Keymaps
