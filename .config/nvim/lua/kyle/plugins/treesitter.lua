@@ -34,4 +34,9 @@ treesitter.setup({
 	},
 	-- auto install above language parsers
 	auto_install = true,
+	-- Disable cursor hold for tsx and jsx comment plugin
+	context_commentstring = {
+		enable = true,
+		enable_autocmd = false,
+	},
 })
