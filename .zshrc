@@ -140,6 +140,7 @@ alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 # general
 alias config="vi $HOME/.zshrc"
 alias reload="source $HOME/.zshrc"
+alias viconfig="vi $HOME/.config/nvim"
 
 # ls alias to exa
 alias ls="exa"
