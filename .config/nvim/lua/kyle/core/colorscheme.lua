@@ -1,3 +1,6 @@
+vim.g.nightflyTransparent = true
+vim.g.nightflyUnderlineMatchParen = true
+
 -- set colorscheme to nightfly with protected call
 -- in case it isn't installed
 local status, _ = pcall(vim.cmd, "colorscheme nightfly")

@@ -166,3 +166,5 @@ alias ds="yadm status"
 alias da="yadm add"
 alias dc="yadm commit -m"
 alias dp="yadm push"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
