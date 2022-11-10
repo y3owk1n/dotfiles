@@ -66,6 +66,7 @@ return packer.startup(function(use)
 	use("hrsh7th/nvim-cmp") -- completion plugin
 	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
+	use("ray-x/lsp_signature.nvim") -- show function signature when typing
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") -- snippet engine
@@ -94,6 +95,7 @@ return packer.startup(function(use)
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
 	})
+	use("nvim-treesitter/nvim-treesitter-context") -- stick functions line to the top
 
 	-- colorizer
 	use("norcalli/nvim-colorizer.lua")

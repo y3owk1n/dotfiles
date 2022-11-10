@@ -120,6 +120,10 @@ alias vi="nvim"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# pnpm
+export PNPM_HOME="/Users/kyle/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
 # thefuck alis
 eval $(thefuck --alias)
 
@@ -168,3 +172,4 @@ alias dc="yadm commit -m"
 alias dp="yadm push"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
