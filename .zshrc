@@ -111,7 +111,10 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # alias nvim to vi
-alias vi="nvim"
+# alias vi="nvim"
+
+# alias lvim to vi
+alias vi="lvim"
 
 # bun completions
 [ -s "/Users/kyle/.bun/_bun" ] && source "/Users/kyle/.bun/_bun"
