@@ -13,6 +13,21 @@ lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.telescope.pickers.find_files.previewer = nil
+lvim.builtin.telescope = {
+    active = true,
+    defaults = {
+        layout_strategy = "horizontal",
+    },
+    pickers = {
+        git_files = {
+            hidden = true,
+        },
+        live_grep = {
+            hidden = true,
+        },
+    },
+}
 
 -- general vim options
 vim.opt.relativenumber = true -- show relative line numbers
