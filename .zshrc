@@ -116,6 +116,9 @@ source $ZSH/oh-my-zsh.sh
 # alias lvim to vi
 alias vi="lvim"
 
+# use lunarvim as editor for terminal
+export EDITOR='lvim'
+
 # bun completions
 [ -s "/Users/kyle/.bun/_bun" ] && source "/Users/kyle/.bun/_bun"
 
@@ -126,6 +129,9 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # pnpm
 export PNPM_HOME="/Users/kyle/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
+
+# yarn
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # thefuck alis
 eval $(thefuck --alias)
@@ -175,5 +181,4 @@ alias da="yadm add"
 alias dc="yadm commit -m"
 alias dp="yadm push"
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
