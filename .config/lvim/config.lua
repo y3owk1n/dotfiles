@@ -1,34 +1,15 @@
----------------------
+--------------------
 -- Options
 ---------------------
 
 -- general lvim options
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
-lvim.reload_config_on_save = false
+lvim.reload_config_on_save = true
 lvim.colorscheme = "nightfly"
 lvim.transparent_window = true
 lvim.leader = "space"
-lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.terminal.active = true
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
-lvim.builtin.telescope.pickers.find_files.previewer = nil
-lvim.builtin.telescope = {
-    active = true,
-    defaults = {
-        layout_strategy = "horizontal",
-    },
-    pickers = {
-        git_files = {
-            hidden = true,
-        },
-        live_grep = {
-            hidden = true,
-        },
-    },
-}
+
 
 -- general vim options
 vim.opt.relativenumber = true -- show relative line numbers
@@ -60,6 +41,34 @@ lvim.builtin.which_key.mappings["h"] = {} -- remove default highlight from which
 ---------------------
 -- Plugins Configurations
 ---------------------
+
+-- alpha
+lvim.builtin.alpha.active = true
+lvim.builtin.alpha.mode = "dashboard"
+
+-- terminal
+lvim.builtin.terminal.active = true
+
+-- nvim tree
+lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+
+-- telescope
+lvim.builtin.telescope.pickers.find_files.previewer = nil
+lvim.builtin.telescope = {
+    active = true,
+    defaults = {
+        layout_strategy = "horizontal",
+    },
+    pickers = {
+        git_files = {
+            hidden = true,
+        },
+        live_grep = {
+            hidden = true,
+        },
+    },
+}
 
 -- lualine
 local new_colors = {
@@ -152,6 +161,18 @@ lvim.plugins = {
         -- setup = function()
         --  vim.o.timeoutlen = 500
         -- end
+    },
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "BufRead",
+        config = function() require "lsp_signature".on_attach() end,
+    },
+    {
+        "folke/todo-comments.nvim",
+        event = "BufRead",
+        config = function()
+            require("todo-comments").setup()
+        end,
     },
 }
 
