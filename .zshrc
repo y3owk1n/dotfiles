@@ -17,10 +17,16 @@ plug "zap-zsh/zap-prompt"
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 
 # general
-alias zconfig="lvim $HOME/.zshrc"
-alias zreload="source $HOME/.zshrc"
-alias nvimconfig="lvim $HOME/.config/nvim"
-alias lvimconfig="lvim $HOME/.config/lvim"
+alias c="clear"
+alias x="exit"
+alias zc="lvim $HOME/.zshrc"
+alias zr="source $HOME/.zshrc"
+alias nvimc="lvim $HOME/.config/nvim"
+alias lvimc="lvim $HOME/.config/lvim"
+alias ..="cd .."
+
+# speedtest alias
+alias st="speedtest"
 
 # ls alias to exa
 alias ls="exa --icons"
