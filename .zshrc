@@ -21,7 +21,7 @@ alias c="clear"
 alias x="exit"
 alias zc="lvim $HOME/.zshrc"
 alias zr="source $HOME/.zshrc"
-alias nvimc="lvim $HOME/.config/nvim"
+alias nvimc="nvim $HOME/.config/nvim"
 alias lvimc="lvim $HOME/.config/lvim"
 alias ..="cd .."
 
@@ -31,6 +31,9 @@ alias st="speedtest"
 # ls alias to exa
 alias ls="exa --icons"
 alias lsa="exa -all --icons"
+
+# cat to bat
+alias cat="bat -pp"
 
 # tmux alias
 alias tmn="tmux new -s"
