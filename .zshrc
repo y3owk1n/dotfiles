@@ -17,9 +17,9 @@ plug "zap-zsh/zap-prompt"
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
 
 # general
-alias config="lvim $HOME/.zshrc"
-alias reload="source $HOME/.zshrc"
-alias viconfig="lvim $HOME/.config/nvim"
+alias zconfig="lvim $HOME/.zshrc"
+alias zreload="source $HOME/.zshrc"
+alias nvimconfig="lvim $HOME/.config/nvim"
 alias lvimconfig="lvim $HOME/.config/lvim"
 
 # ls alias to exa
