@@ -1,13 +1,13 @@
 local augroup = vim.api.nvim_create_augroup -- for conciseness
 local autocmd = vim.api.nvim_create_autocmd -- for conciseness
 
--- Autocommands (https://neovim.io/doc/user/autocmd.html)
+-- enable text warp for json, gitcommit and markdown
 autocmd("BufEnter", {
-    pattern = { "*.json", "*.jsonc" },
-    -- enable wrap mode for json files only
+    pattern = { "*.json", "*.jsonc", "gitcommit", "markdown" },
     command = "setlocal wrap",
 })
 
+-- bash highlight for zsh
 autocmd("FileType", {
     pattern = "zsh",
     callback = function()
