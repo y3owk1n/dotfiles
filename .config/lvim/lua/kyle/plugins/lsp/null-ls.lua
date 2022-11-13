@@ -12,9 +12,11 @@ formatters.setup {
         command = "prettier",
         ---@usage arguments to pass to the formatter
         -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-        extra_args = { "--print-with", "100" },
+        extra_args = { "--print-width=80", "--tab-width=4", "--use-tabs=true", "--bracket-same-line=true",
+            "--single-attribute-per-line=true" },
         ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-        filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "css", "scss", "less",
+            "html", "json", "jsonc", "yaml", "markdown", "markdown.mdx", "graphql", "handlebars" },
     },
 }
 
