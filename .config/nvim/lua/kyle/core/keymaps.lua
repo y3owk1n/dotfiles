@@ -4,16 +4,6 @@ vim.g.mapleader = " "
 local keymap = vim.keymap -- for conciseness
 
 ---------------------
--- Modes
----------------------
-
--- normal mode = "n"
--- insert mode = "i"
--- visual mode = "v"
--- visual block mode = "x"
--- term mode = "t"
-
----------------------
 -- General Keymaps
 ---------------------
 

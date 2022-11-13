@@ -1,5 +1,11 @@
+vim.cmd("autocmd Colorscheme * highlight NvimTreeIndentMarker guifg=#3FC5FF")
+
 lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.view.hide_root_folder = true
+lvim.builtin.nvimtree.setup.view.adaptive_size = true
 lvim.builtin.nvimtree.setup.actions.open_file.quit_on_open = true
+lvim.builtin.nvimtree.setup.actions.open_file.resize_window = true
+lvim.builtin.nvimtree.setup.actions.open_file.window_picker.enable = false
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
 lvim.builtin.nvimtree.setup.renderer.icons.glyphs.folder.arrow_closed = ""
 lvim.builtin.nvimtree.setup.renderer.icons.glyphs.folder.arrow_open = ""
