@@ -48,12 +48,6 @@ yabai -m rule --add app="^(Mail|Keynote|Numbers|Pages|Calendar)$" space=5
 yabai -m rule --add app="^(Music)$" space=6
 
 # apps to not manage (ignore)
-yabai -m rule --add app="^System Settings$" manage=off
-yabai -m rule --add app="^Archive Utility$" manage=off
-yabai -m rule --add app="^Creative Cloud$" manage=off
-yabai -m rule --add app="^Logi Options$" manage=off
-yabai -m rule --add app="^Raycast$" manage=off
-yabai -m rule --add app="^Bitwarden$" manage=off
-yabai -m rule --add app="^CleanMyMac X$" manage=off
+yabai -m rule --add app="^(System Settings|Archive Utility|Creative Cloud|Logi Options|Raycsat|Bitwarden|CleanMyMac X|Karabiner-Elements|Karabiner-EventViewer)$" manage=off
 
 echo "yabai configuration loaded.."
