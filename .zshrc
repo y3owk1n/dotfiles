@@ -15,6 +15,7 @@ plug "zap-zsh/zap-prompt"
 
 # brew
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
+alias brewrestartall="brew services restart --all"
 
 # general
 alias c="clear"
