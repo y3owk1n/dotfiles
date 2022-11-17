@@ -73,6 +73,29 @@ function chpwd_cdls() {
     fi
 }
 
+# Sketchybar interactivity overloads
+function brew() {
+  command brew "$@" 
+
+  if [[ $* =~ "upgrade" ]] || [[ $* =~ "update" ]] || [[ $* =~ "outdated" ]]; then
+    sketchybar --trigger brew_update
+  fi
+}
+
+# Fancy sketchybar commands
+function margin () {
+  if [ $1 = "on" ]; then
+    yabai -m config top_padding 20
+    sketchybar --animate sin 30 --bar margin=10 y_offset=10 corner_radius=9
+  else
+    yabai -m config top_padding 10
+    sketchybar --animate sin 30 --bar margin=0 y_offset=0 corner_radius=0
+  fi
+}
+
+function zen () {
+  ~/.config/sketchybar/plugins/zen.sh $1
+}
 # bun completions
 [ -s "/Users/kyle/.bun/_bun" ] && source "/Users/kyle/.bun/_bun"
 
