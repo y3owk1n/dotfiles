@@ -1,4 +1,4 @@
-vim.cmd("autocmd Colorscheme * highlight NvimTreeIndentMarker guifg=#3FC5FF")
+-- vim.cmd("autocmd Colorscheme * highlight NvimTreeIndentMarker guifg=#3FC5FF")
 
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.view.hide_root_folder = true

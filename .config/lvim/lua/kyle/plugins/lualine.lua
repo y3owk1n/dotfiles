@@ -16,4 +16,4 @@ lualine_nightfly.command = {
         fg = new_colors.black, -- black
     },
 }
-lvim.builtin.lualine.options.theme = lualine_nightfly
+lvim.builtin.lualine.options.theme = "catppuccin"

@@ -61,7 +61,7 @@ yabai -m space 6 --label "Music"
 # Web browsers
 yabai -m rule --add app="^Google Chrome|Arc|Safari$" space=1
 # Terminal
-yabai -m rule --add app="^(iTerm)$" space=2
+yabai -m rule --add app="^(iTerm2|Terminal|Alacritty)$" space=2
 # Notes
 yabai -m rule --add app="^(Notion|Obsidian|Notes|Reminders)$" space=3
 # Social

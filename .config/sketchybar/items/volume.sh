@@ -16,16 +16,16 @@
 #                         align=left                      \
 #            --subscribe volume volume_change
 
-sketchybar --add alias "Control Centre,Sound" right                      \
-           --rename "Control Centre,Sound" volume_alias                  \
-           --set volume_alias icon.drawing=off                           \
-                              label.drawing=off                          \
-                              alias.color=$WHITE                         \
-                    background.height=24 \
-                              icon.padding_left=8                    \
-                              icon.padding_right=8                    \
-                              label.padding_left=8                    \
-                              label.padding_right=8                   \
-                              background.color=$BACKGROUND_1                \
-                              background.drawing=on                         \
-                              click_script="$PLUGIN_DIR/volume_click.sh"
+sketchybar --add alias "Control Centre,Sound" right \
+	--rename "Control Centre,Sound" volume_alias \
+	--set volume_alias icon.drawing=off \
+	label.drawing=off \
+	alias.color=$WHITE \
+	background.height=24 \
+	icon.padding_left=8 \
+	icon.padding_right=8 \
+	label.padding_left=8 \
+	label.padding_right=8 \
+	background.color=$BACKGROUND_1 \
+	background.drawing=on \
+	click_script="$PLUGIN_DIR/volume_click.sh"
