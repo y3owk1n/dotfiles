@@ -1,27 +1,31 @@
-sketchybar --add item volume right                      \
-           --set volume script="$PLUGIN_DIR/volume.sh"  \
-                        updates=on                      \
-                        icon.background.drawing=on      \
-                        icon.background.color=$BLUE     \
-                        icon.background.height=8        \
-                        icon.background.corner_radius=3 \
-                        icon.width=0                    \
-                        icon.align=right                \
-                        label.drawing=off               \
-                        background.drawing=on           \
-                        background.color=$BACKGROUND_2  \
-                        background.height=8             \
-                        background.corner_radius=3      \
-                        align=left                      \
-           --subscribe volume volume_change
+# sketchybar --add item volume right                      \
+#            --set volume script="$PLUGIN_DIR/volume.sh"  \
+#                         updates=on                      \
+#                         icon.background.drawing=on      \
+#                         icon.background.color=$BLUE     \
+#                         icon.background.height=8        \
+#                         icon.background.corner_radius=3 \
+#                         icon.padding_left=8 \
+#                         icon.width=0                    \
+#                         icon.align=right                \
+#                         label.drawing=off               \
+#                         background.drawing=on           \
+#                         background.color=$BACKGROUND_2  \
+#                         background.height=8             \
+#                         background.corner_radius=3      \
+#                         align=left                      \
+#            --subscribe volume volume_change
 
 sketchybar --add alias "Control Centre,Sound" right                      \
            --rename "Control Centre,Sound" volume_alias                  \
            --set volume_alias icon.drawing=off                           \
                               label.drawing=off                          \
                               alias.color=$WHITE                         \
-                              background.padding_right=0                 \
-                              background.padding_left=5                  \
-                              width=50                                   \
-                              align=right                                \
+                    background.height=24 \
+                              icon.padding_left=8                    \
+                              icon.padding_right=8                    \
+                              label.padding_left=8                    \
+                              label.padding_right=8                   \
+                              background.color=$BACKGROUND_1                \
+                              background.drawing=on                         \
                               click_script="$PLUGIN_DIR/volume_click.sh"

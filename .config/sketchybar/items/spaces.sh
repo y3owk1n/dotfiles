@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6")
+SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "0")
 SPACE_CLICK_SCRIPT="yabai -m space --focus \$SID 2>/dev/null"
 
 sid=0
