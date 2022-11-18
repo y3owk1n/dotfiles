@@ -9,4 +9,3 @@ sketchybar --set calendar label.padding_right=8
 sketchybar --set calendar background.height=24
 sketchybar --set calendar background.color=$GREEN
 sketchybar --set calendar align=center
-sketchybar --set calendar click_script="$PLUGIN_DIR/zen.sh"

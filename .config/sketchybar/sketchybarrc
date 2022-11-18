@@ -15,8 +15,8 @@ killall helper
 cd $HOME/.config/sketchybar/helper && make
 $HOME/.config/sketchybar/helper/helper $HELPER > /dev/null 2>&1 &
 
-# Unload the macOS on screen indicator overlay for volume change
-launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
+# Unload the macOS on screen indicator overlay for volume change (for SIP disabled only)
+# launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
 
 # Setting up the general bar appearance and default values
 sketchybar --bar height=39
@@ -61,12 +61,9 @@ source "$ITEM_DIR/window_title.sh"
 
 # Right
 source "$ITEM_DIR/calendar.sh"
-# source "$ITEM_DIR/brew.sh"
-# source "$ITEM_DIR/github.sh"
 source "$ITEM_DIR/battery.sh"
 source "$ITEM_DIR/volume.sh"
 source "$ITEM_DIR/mem.sh"
-# source "$ITEM_DIR/divider.sh"
 source "$ITEM_DIR/cpu.sh"
 
 # Forcing all item scripts to run (never do this outside of sketchybarrc)

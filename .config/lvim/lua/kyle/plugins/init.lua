@@ -21,7 +21,6 @@ lvim.plugins = {
                     gitsigns = true,
                     mason = true,
                     treesitter = true,
-                    treesitter_context = true,
                     which_key = true,
                     dap = {
                         enabled = true,
