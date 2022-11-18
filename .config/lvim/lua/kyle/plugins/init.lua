@@ -5,7 +5,8 @@ lvim.plugins = {
     {
         "catppuccin/nvim",
         config = function()
-            local colors = require("catppuccin.palettes").get_palette() -- fetch colors from palette
+            -- local colors = require("catppuccin.palettes").get_palette() -- fetch colors from palette
+            local colors = require("catppuccin.palettes").get_palette "macchiato"
 
             local options = {
                 transparent_background = true,
@@ -17,8 +18,11 @@ lvim.plugins = {
                     harpoon = true,
                     telescope = true,
                     nvimtree = true,
-                    lualine = true,
+                    gitsigns = true,
                     mason = true,
+                    treesitter = true,
+                    treesitter_context = true,
+                    which_key = true,
                     dap = {
                         enabled = true,
                         enable_ui = true,
