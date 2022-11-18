@@ -8,7 +8,8 @@ window:
     dynamic_title: true
 
 scrolling:
-    history: 20000
+    history: 10000
+    multiplier: 3
 
 font:
     normal:
