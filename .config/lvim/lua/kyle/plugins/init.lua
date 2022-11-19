@@ -1,7 +1,4 @@
 lvim.plugins = {
-    -- {
-    --     "bluz71/vim-nightfly-guicolors",
-    -- },
     {
         "catppuccin/nvim",
         config = function()
