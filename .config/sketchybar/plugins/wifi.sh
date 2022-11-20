@@ -5,10 +5,14 @@ SSID="$(echo "$CURRENT_WIFI" | grep -o "SSID: .*" | sed 's/^SSID: //')"
 
 if [ "$SSID" = "" ]; then
     sketchybar --set $NAME label="DC" icon=􀙈
+    exit 0
 fi
 
 if [[ ${#SSID} -gt 10 ]]; then
     SSID=$(echo "$SSID" | cut -c 1-10)
     sketchybar --set $NAME label="$SSID"… icon=􀙇
+    exit 0
+else
+    sketchybar --set $NAME label="$SSID" icon=􀙇
     exit 0
 fi
