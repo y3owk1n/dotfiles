@@ -192,5 +192,5 @@ lvim.plugins = {
                 },
             }
         end
-    },
+    }
 }
