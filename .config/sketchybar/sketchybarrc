@@ -15,9 +15,6 @@ killall helper
 cd $HOME/.config/sketchybar/helper && make
 $HOME/.config/sketchybar/helper/helper $HELPER > /dev/null 2>&1 &
 
-# Unload the macOS on screen indicator overlay for volume change (for SIP disabled only)
-# launchctl unload -F /System/Library/LaunchAgents/com.apple.OSDUIHelper.plist > /dev/null 2>&1 &
-
 # Setting up the general bar appearance and default values
 sketchybar --bar height=39
 sketchybar --bar color=$BAR_COLOR

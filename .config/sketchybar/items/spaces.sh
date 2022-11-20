@@ -9,8 +9,8 @@ do
     sketchybar --add space space.$sid left
     sketchybar --set space.$sid associated_space=$sid
     sketchybar --set space.$sid icon=${SPACE_ICONS[i]}
-    sketchybar --set space.$sid icon.padding_left=16
-    sketchybar --set space.$sid icon.padding_right=16
+    sketchybar --set space.$sid icon.padding_left=10
+    sketchybar --set space.$sid icon.padding_right=10
     sketchybar --set space.$sid icon.highlight_color=$ORANGE
     sketchybar --set space.$sid background.padding_left=-8
     sketchybar --set space.$sid background.padding_right=-8
@@ -22,7 +22,7 @@ done
 sketchybar --add item separator left
 sketchybar --set separator icon=
 sketchybar --set separator icon.font="Hack Nerd Font:Regular:12.0"
-sketchybar --set separator background.padding_left=20
+sketchybar --set separator background.padding_left=16
 sketchybar --set separator background.padding_right=0
 sketchybar --set separator label.drawing=off
 sketchybar --set separator associated_display=active
