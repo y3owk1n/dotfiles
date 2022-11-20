@@ -24,6 +24,7 @@ alias zc="lvim $HOME/.zshrc"
 alias zr="source $HOME/.zshrc"
 alias nvimc="nvim $HOME/.config/nvim"
 alias lvimc="lvim $HOME/.config/lvim"
+alias hxc="hx $HOME/.config/helix"
 alias ..="cd .."
 alias ...="cd ../.."
 

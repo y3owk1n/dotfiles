@@ -4,6 +4,7 @@ theme = 'catppuccin_macchiato'
 line-number = "relative"
 mouse = false
 scrolloff = 8
+true-color = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -19,10 +20,14 @@ separator = "│"
 [editor.lsp]
 display-messages = true
 
+[editor.indent-guides]
+render = true
+character = "╎" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
 [keys.normal]
 
 [keys.normal.space]
 "q" = ":q"
 "w" = ":w"
 
-[keys.insert]

@@ -7,7 +7,7 @@ sketchybar --add event windows_on_spaces
 
 sketchybar --add item system.yabai left
 sketchybar --set system.yabai script="$PLUGIN_DIR/yabai.sh"
-sketchybar --set system.yabai icon.font="$FONT:Bold:12.0"
+sketchybar --set system.yabai icon.font="$FONT:Black:12.0"
 sketchybar --set system.yabai label.drawing=off
 sketchybar --set system.yabai icon.width=22
 sketchybar --set system.yabai icon=$YABAI_GRID
