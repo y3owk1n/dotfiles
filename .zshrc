@@ -35,6 +35,9 @@ alias st="speedtest"
 alias ls="exa --icons"
 alias lsa="exa -all --icons"
 
+# ls alias to ranger
+alias lsr="ranger"
+
 # cat to bat
 alias cat="bat -pp"
 

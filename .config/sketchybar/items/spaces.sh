@@ -9,8 +9,8 @@ do
     sketchybar --add space space.$sid left
     sketchybar --set space.$sid associated_space=$sid
     sketchybar --set space.$sid icon=${SPACE_ICONS[i]}
-    sketchybar --set space.$sid icon.padding_left=10
-    sketchybar --set space.$sid icon.padding_right=10
+    sketchybar --set space.$sid icon.padding_left=16
+    sketchybar --set space.$sid icon.padding_right=16
     sketchybar --set space.$sid icon.highlight_color=$ORANGE
     sketchybar --set space.$sid background.padding_left=-8
     sketchybar --set space.$sid background.padding_right=-8
