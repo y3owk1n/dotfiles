@@ -1,1 +1,1 @@
-lvim.builtin.terminal.active = true
+lvim.builtin.terminal.active = false

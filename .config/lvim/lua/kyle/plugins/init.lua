@@ -116,10 +116,6 @@ lvim.plugins = {
     },
     {
         "tpope/vim-surround",
-        -- make sure to change the value of `timeoutlen` if it's not triggering correctly, see https://github.com/tpope/vim-surround/issues/117
-        -- setup = function()
-        --  vim.o.timeoutlen = 500
-        -- end
     },
     {
         "ray-x/lsp_signature.nvim",
@@ -144,7 +140,6 @@ lvim.plugins = {
         event = "WinScrolled",
         config = function()
             require('neoscroll').setup({
-                -- All these keys will be mapped to their corresponding default scrolling animation
                 mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
                     '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
                 hide_cursor = true, -- Hide cursor while scrolling
@@ -166,10 +161,6 @@ lvim.plugins = {
                 throttle = true, -- Throttles plugin updates (may improve performance)
                 max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
                 patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
-                    -- For all filetypes
-                    -- Note that setting an entry here replaces all other patterns for this entry.
-                    -- By setting the 'default' entry below, you can control which nodes you want to
-                    -- appear in the context window.
                     default = {
                         'class',
                         'function',
