@@ -18,6 +18,7 @@ lvim.keys.visual_mode["K"] = ":m '>-2<CR>gv=gv" -- Move one line down
 -- Unbind default which-keys keymaps
 lvim.builtin.which_key.mappings[";"] = {} -- remove dashboard alpha from which-key
 lvim.builtin.which_key.mappings["c"] = {} -- remove close buffer from which-key
+lvim.builtin.which_key.mappings["b"] = {} -- remove buffer from which-key
 
 -- Bind new whichkeys
 lvim.builtin.which_key.mappings["h"] = {
