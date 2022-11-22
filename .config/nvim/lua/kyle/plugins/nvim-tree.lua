@@ -8,13 +8,14 @@ end
 vim.g.loaded = 1
 vim.g.loaded_netrwPlugin = 1
 
--- change color for arrows in tree to light blue
-vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
+-- -- change color for arrows in tree to light blue
+-- vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
 -- configure nvim-tree
 nvimtree.setup({
 	view = {
 		hide_root_folder = true, -- disable showing of root folder
+		adaptive_size = true,
 	},
 	-- change folder arrow icons
 	renderer = {
@@ -32,6 +33,7 @@ nvimtree.setup({
 	-- window splits
 	actions = {
 		open_file = {
+			quite_on_open = true,
 			window_picker = {
 				enable = false,
 			},

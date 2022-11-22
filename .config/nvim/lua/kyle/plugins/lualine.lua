@@ -31,7 +31,7 @@ lualine_nightfly.command = {
 -- configure lualine with modified theme
 lualine.setup({
 	options = {
-		theme = lualine_nightfly,
+		theme = "catppuccin",
 		icons_enabled = true,
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },

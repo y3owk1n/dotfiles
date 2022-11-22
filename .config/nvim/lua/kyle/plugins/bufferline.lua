@@ -6,6 +6,14 @@ end
 
 -- enable bufferline
 bufferline.setup({
+	highlights = {
+		background = {
+			italic = true,
+		},
+		buffer_selected = {
+			bold = true,
+		},
+	},
 	options = {
 		mode = "tabs",
 		separator_style = "slant",
