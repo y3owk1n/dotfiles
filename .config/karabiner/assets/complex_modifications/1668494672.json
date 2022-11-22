@@ -1,0 +1,1 @@
+{"title":"Semicolon to Hyper Key (Semicolon if alone)","rules":[{"description":"Semicolon to Hyper Key (Semicolon if alone)","manipulators":[{"from":{"key_code":"semicolon"},"to":[{"key_code":"left_shift","modifiers":["left_command","left_control","left_option"]}],"to_if_alone":[{"key_code":"semicolon"}],"type":"basic"}]}]}
