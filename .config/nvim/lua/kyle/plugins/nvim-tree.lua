@@ -1,3 +1,5 @@
+local icons = require("kyle.icons")
+
 -- import nvim-tree plugin safely
 local setup, nvimtree = pcall(require, "nvim-tree")
 if not setup then
@@ -19,11 +21,25 @@ nvimtree.setup({
 		enable = true,
 		show_on_dirs = false,
 		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
+			hint = icons.diagnostics.BoldHint,
+			info = icons.diagnostics.BoldInformation,
+			warning = icons.diagnostics.BoldWarning,
+			error = icons.diagnostics.BoldError,
 		},
+	},
+	update_focused_file = {
+		enable = true,
+		update_cwd = true,
+		ignore_list = {},
+	},
+	system_open = {
+		cmd = nil,
+		args = {},
+	},
+	git = {
+		enable = true,
+		ignore = false,
+		timeout = 200,
 	},
 	view = {
 		hide_root_folder = true, -- disable showing of root folder
@@ -33,25 +49,61 @@ nvimtree.setup({
 	-- change folder arrow icons
 	renderer = {
 		icons = {
+			webdev_colors = true,
+			show = {
+				git = true,
+				folder = true,
+				file = true,
+				folder_arrow = true,
+			},
 			glyphs = {
+				default = icons.ui.Text,
+				symlink = icons.ui.FileSymlink,
+				git = {
+					deleted = icons.git.FileDeleted,
+					ignored = icons.git.FileIgnored,
+					renamed = icons.git.FileRenamed,
+					staged = icons.git.FileStaged,
+					unmerged = icons.git.FileUnmerged,
+					unstaged = icons.git.FileUnstaged,
+					untracked = icons.git.FileUntracked,
+				},
 				folder = {
-					arrow_closed = "", -- arrow when folder is closed
-					arrow_open = "", -- arrow when folder is open
+					default = icons.ui.Folder,
+					empty = icons.ui.EmptyFolder,
+					empty_open = icons.ui.EmptyFolderOpen,
+					open = icons.ui.FolderOpen,
+					symlink = icons.ui.FolderSymlink,
+					arrow_closed = icons.ui.BoldArrowRight, -- arrow when folder is closed
+					arrow_open = icons.ui.BoldArrowDown, -- arrow when folder is open
 				},
 			},
 		},
+		highlight_git = true,
+		group_empty = false,
+		root_folder_modifier = ":t",
 	},
 	filters = {
 		dotfiles = false,
 		custom = { "node_modules", "\\.cache" },
+		exclude = {},
 	},
 	trash = {
 		cmd = "trash",
 		require_confirm = true,
 	},
-	-- disable window_picker for
-	-- explorer to work well with
-	-- window splits
+	log = {
+		enable = false,
+		truncate = false,
+		types = {
+			all = false,
+			config = false,
+			copy_paste = false,
+			diagnostics = false,
+			git = false,
+			profile = false,
+		},
+	},
 	actions = {
 		use_system_clipboard = true,
 		change_dir = {

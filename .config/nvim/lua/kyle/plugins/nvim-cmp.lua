@@ -65,6 +65,10 @@ cmp.setup({
 			end
 		end, { "i", "s" }),
 	}),
+	window = {
+		completion = cmp.config.window.bordered(),
+		documentation = cmp.config.window.bordered(),
+	},
 	-- sources for autocompletion
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" }, -- lsp

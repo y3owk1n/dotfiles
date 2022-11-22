@@ -1,3 +1,5 @@
+local components = require("kyle.plugins.lualine.components")
+
 -- import lualine plugin safely
 local status, lualine = pcall(require, "lualine")
 if not status then
@@ -9,46 +11,54 @@ lualine.setup({
 	options = {
 		theme = "catppuccin",
 		icons_enabled = true,
-		section_separators = { left = "", right = "" },
-		component_separators = { left = "", right = "" },
+		component_separators = { left = "", right = "" },
+		section_separators = { left = "", right = "" },
 		disabled_filetypes = {},
 	},
 	sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff" },
+		lualine_a = {
+			components.mode,
+		},
+		lualine_b = {
+			components.branch,
+		},
 		lualine_c = {
-			{
-				"filename",
-				file_status = true, -- displays file status (readonly status, modified status)
-				path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
-			},
+			components.diff,
+			components.python_env,
 		},
 		lualine_x = {
-			{
-				"diagnostics",
-				sources = { "nvim_diagnostic" },
-				symbols = { error = " ", warn = " ", info = " ", hint = " " },
-			},
-			"encoding",
-			"filetype",
+			components.diagnostics,
+			components.lsp,
+			components.spaces,
+			components.filetype,
 		},
-		lualine_y = { "progress" },
-		lualine_z = { "location" },
+		lualine_y = { components.location },
+		lualine_z = {
+			components.progress,
+		},
 	},
 	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = {
-			{
-				"filename",
-				file_status = true, -- displays file status (readonly status, modified status)
-				path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
-			},
+		lualine_a = {
+			components.mode,
 		},
-		lualine_x = { "location" },
-		lualine_y = {},
-		lualine_z = {},
+		lualine_b = {
+			components.branch,
+		},
+		lualine_c = {
+			components.diff,
+			components.python_env,
+		},
+		lualine_x = {
+			components.diagnostics,
+			components.lsp,
+			components.spaces,
+			components.filetype,
+		},
+		lualine_y = { components.location },
+		lualine_z = {
+			components.progress,
+		},
 	},
 	tabline = {},
-	extensions = { "fugitive" },
+	extensions = {},
 })
