@@ -16,11 +16,20 @@ lvim.keys.visual_mode["J"] = ":m '>+1<CR>gv=gv" -- Move one line up
 lvim.keys.visual_mode["K"] = ":m '>-2<CR>gv=gv" -- Move one line down
 
 -- Unbind default which-keys keymaps
--- lvim.builtin.which_key.mappings["h"] = {} -- remove default highlight from which-key
+lvim.builtin.which_key.mappings[";"] = {} -- remove dashboard alpha from which-key
+lvim.builtin.which_key.mappings["c"] = {} -- remove close buffer from which-key
 
 -- Bind new whichkeys
 lvim.builtin.which_key.mappings["h"] = {
     name = "Harpoon",
     e = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" },
     a = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add mark" },
+}
+
+lvim.builtin.which_key.mappings["t"] = {
+    name = "Tabs",
+    t = { ":tabnew<CR>", "Open a new tab" },
+    x = { ":tabclose<CR>", "Close current tab" },
+    l = { ":tabn<CR>", "Go to next tab" },
+    h = { ":tabp<CR>", "Go to previous tab" },
 }
