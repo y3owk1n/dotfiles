@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 
 sketchybar --add item datetime right
+sketchybar --set datetime update_freq=2
 sketchybar --set datetime icon.padding_left=8
 sketchybar --set datetime icon.color=$BLACK
 sketchybar --set datetime label.color=$BLACK
