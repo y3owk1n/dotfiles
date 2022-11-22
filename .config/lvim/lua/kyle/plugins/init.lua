@@ -183,5 +183,8 @@ lvim.plugins = {
                 },
             }
         end
+    },
+    {
+        "jose-elias-alvarez/typescript.nvim"
     }
 }
