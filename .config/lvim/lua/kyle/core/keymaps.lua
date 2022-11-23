@@ -21,6 +21,11 @@ lvim.builtin.which_key.mappings["c"] = {} -- remove close buffer from which-key
 lvim.builtin.which_key.mappings["b"] = {} -- remove buffer from which-key
 
 -- Bind new whichkeys
+
+lvim.builtin.which_key.mappings["T"] = {
+    ":TodoTelescope<CR>", "Todo"
+}
+
 lvim.builtin.which_key.mappings["h"] = {
     name = "Harpoon",
     e = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" },
