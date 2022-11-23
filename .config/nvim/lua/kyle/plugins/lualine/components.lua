@@ -18,7 +18,7 @@ local branch = icons.git.Branch
 return {
 	mode = {
 		function()
-			return " " .. icons.ui.Target .. " "
+			return " " .. icons.ui.Fire .. " "
 		end,
 		padding = { left = 0, right = 0 },
 		color = {},
@@ -88,55 +88,47 @@ return {
 		end,
 		cond = conditions.hide_in_width,
 	},
-	lsp = {
-		function(msg)
-			msg = msg or "LS Inactive"
-			local buf_clients = vim.lsp.buf_get_clients()
-			if next(buf_clients) == nil then
-				-- TODO: clean up this if statement
-				if type(msg) == "boolean" or #msg == 0 then
-					return "LS Inactive"
-				end
-				return msg
-			end
-			local buf_ft = vim.bo.filetype
-			local buf_client_names = {}
-			local copilot_active = false
+	-- lsp = {
+	-- 	function(msg)
+	-- 		msg = msg or "LS Inactive"
+	-- 		local buf_clients = vim.lsp.buf_get_clients()
+	-- 		if next(buf_clients) == nil then
+	-- 			-- TODO: clean up this if statement
+	-- 			if type(msg) == "boolean" or #msg == 0 then
+	-- 				return "LS Inactive"
+	-- 			end
+	-- 			return msg
+	-- 		end
+	-- 		local buf_ft = vim.bo.filetype
+	-- 		local buf_client_names = {}
 
-			-- add client
-			for _, client in pairs(buf_clients) do
-				if client.name ~= "null-ls" and client.name ~= "copilot" then
-					table.insert(buf_client_names, client.name)
-				end
+	-- 		-- add client
+	-- 		for _, client in pairs(buf_clients) do
+	-- 			if client.name ~= "null-ls" then
+	-- 				table.insert(buf_client_names, client.name)
+	-- 			end
+	-- 		end
 
-				if client.name == "copilot" then
-					copilot_active = true
-				end
-			end
+	-- 		-- add formatter
+	-- 		-- local formatters = require("lsp.null-ls.formatters")
+	-- 		local formatters = require("kyle.plugins.lsp.null-ls.formatter")
+	-- 		local supported_formatters = formatters.list_registered(buf_ft)
+	-- 		vim.list_extend(buf_client_names, supported_formatters)
 
-			-- add formatter
-			local formatters = require("lsp.null-ls.formatters")
-			local supported_formatters = formatters.list_registered(buf_ft)
-			vim.list_extend(buf_client_names, supported_formatters)
+	-- 		-- add linter
+	-- 		local linters = require("lsp.null-ls.linters")
+	-- 		local supported_linters = linters.list_registered(buf_ft)
+	-- 		vim.list_extend(buf_client_names, supported_linters)
 
-			-- add linter
-			local linters = require("lsp.null-ls.linters")
-			local supported_linters = linters.list_registered(buf_ft)
-			vim.list_extend(buf_client_names, supported_linters)
+	-- 		local unique_client_names = vim.fn.uniq(buf_client_names)
 
-			local unique_client_names = vim.fn.uniq(buf_client_names)
+	-- 		local language_servers = "[" .. table.concat(unique_client_names, ", ") .. "]"
 
-			local language_servers = "[" .. table.concat(unique_client_names, ", ") .. "]"
-
-			if copilot_active then
-				language_servers = language_servers .. "%#SLCopilot#" .. " " .. icons.git.Octoface .. "%*"
-			end
-
-			return language_servers
-		end,
-		color = { gui = "bold" },
-		cond = conditions.hide_in_width,
-	},
+	-- 		return language_servers
+	-- 	end,
+	-- 	color = { gui = "bold" },
+	-- 	cond = conditions.hide_in_width,
+	-- },
 	location = { "location" },
 	progress = {
 		"progress",

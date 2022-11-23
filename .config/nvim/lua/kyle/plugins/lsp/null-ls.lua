@@ -1,30 +1,42 @@
--- import null-ls plugin safely
-local setup, null_ls = pcall(require, "null-ls")
-if not setup then
+local null_ls_status_ok, null_ls = pcall(require, "null-ls")
+if not null_ls_status_ok then
 	return
 end
 
--- for conciseness
-local formatting = null_ls.builtins.formatting -- to setup formatters
-local diagnostics = null_ls.builtins.diagnostics -- to setup linters
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+local formatting = null_ls.builtins.formatting
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+local diagnostics = null_ls.builtins.diagnostics
 
--- to setup format on save
+local code_actions = null_ls.builtins.code_actions
+
+local completion = null_ls.builtins.completion
+
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
--- configure null_ls
 null_ls.setup({
-	-- setup formatters & linters
+	debug = false,
 	sources = {
-		--  to disable file types use
-		--  "formatting.prettier.with({disabled_filetypes: {}})" (see null-ls docs)
-		formatting.prettier, -- js/ts formatter
-		formatting.stylua, -- lua formatter
+		-- formatting
+		formatting.prettier,
+		formatting.stylua,
+		formatting.beautysh,
+		formatting.eslint_d,
+		formatting.prismaFmt,
+		-- completion
+		completion.luasnip,
+		-- diagnostics
 		diagnostics.eslint_d.with({ -- js/ts linter
 			-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
 			condition = function(utils)
-				return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
+				return utils.root_has_file(".eslintrc.cjs") -- change file extension if you use something else
 			end,
 		}),
+		diagnostics.jsonlint,
+		diagnostics.tsc,
+		diagnostics.zsh,
+		-- code actions
+		code_actions.eslint_d,
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)

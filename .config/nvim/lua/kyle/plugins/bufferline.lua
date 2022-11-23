@@ -34,6 +34,7 @@ bufferline.setup({
 	},
 	options = {
 		mode = "tabs",
+		offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
 		separator_style = "thin",
 		always_show_bufferline = false,
 		show_buffer_close_icons = false,

@@ -25,6 +25,19 @@ if not status then
 	return
 end
 
+-- Have packer use a popup window
+packer.init({
+	auto_reload_compiled = true,
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
+	git = {
+		clone_timeout = 300, -- Timeout, in seconds, for git clones
+	},
+})
+
 -- add list of plugins to install
 return packer.startup(function(use)
 	-- packer can manage itself
@@ -34,11 +47,11 @@ return packer.startup(function(use)
 
 	-- use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
 
+	use("lewis6991/impatient.nvim") -- optimisation
+
+	use("folke/which-key.nvim") -- which key
+
 	use({ "catppuccin/nvim", as = "catppuccin" }) -- catppuccin colorscheme
-
-	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
-
-	use("szw/vim-maximizer") -- maximizes and restores current window
 
 	-- essential plugins
 	use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
@@ -47,6 +60,9 @@ return packer.startup(function(use)
 	-- commenting with gc
 	use("numToStr/Comment.nvim")
 	use("JoosepAlviste/nvim-ts-context-commentstring") -- add support for tsx/jsx
+
+	-- toggle terminal
+	use("akinsho/toggleterm.nvim")
 
 	-- file explorer
 	use("nvim-tree/nvim-tree.lua")
@@ -58,7 +74,8 @@ return packer.startup(function(use)
 	use("nvim-lualine/lualine.nvim")
 
 	-- smooth scroll
-	use("declancm/cinnamon.nvim")
+	-- use("declancm/cinnamon.nvim")
+	use("karb94/neoscroll.nvim")
 
 	-- fuzzy finding w/ telescope
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
@@ -68,7 +85,7 @@ return packer.startup(function(use)
 	use("hrsh7th/nvim-cmp") -- completion plugin
 	use("hrsh7th/cmp-buffer") -- source for text in buffer
 	use("hrsh7th/cmp-path") -- source for file system paths
-	use("ray-x/lsp_signature.nvim") -- show function signature when typing
+	-- use("ray-x/lsp_signature.nvim") -- show function signature when typing
 
 	-- snippets
 	use("L3MON4D3/LuaSnip") -- snippet engine
@@ -82,9 +99,10 @@ return packer.startup(function(use)
 	-- configuring lsp servers
 	use("neovim/nvim-lspconfig") -- easily configure language servers
 	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
+	-- use({ "glepnir/lspsaga.nvim", branch = "main" }) -- enhanced lsp uis
 	use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
-	use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+	-- use("onsails/lspkind.nvim") -- vs-code like icons for autocompletion
+	use("hrsh7th/cmp-nvim-lua")
 
 	-- formatting & linting
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
@@ -111,7 +129,6 @@ return packer.startup(function(use)
 
 	-- git integration
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
-	use("dinhhuy258/git.nvim") -- git blame and browse
 
 	-- indent blankline
 	use("lukas-reineke/indent-blankline.nvim")
