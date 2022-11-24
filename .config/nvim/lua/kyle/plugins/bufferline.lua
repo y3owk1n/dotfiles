@@ -1,8 +1,7 @@
 local icons = require("kyle.icons")
 
--- import bufferline plugin safely
-local status, bufferline = pcall(require, "bufferline")
-if not status then
+local status_ok, bufferline = pcall(require, "bufferline")
+if not status_ok then
 	return
 end
 
@@ -22,7 +21,6 @@ local function diagnostics_indicator(_, _, diagnostics, _)
 	return #result > 0 and result or ""
 end
 
--- enable bufferline
 bufferline.setup({
 	highlights = {
 		background = {

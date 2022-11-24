@@ -1,10 +1,8 @@
--- import colorizer plugin safely
-local status, colorizer = pcall(require, "colorizer")
-if not status then
+local status_ok, colorizer = pcall(require, "colorizer")
+if not status_ok then
 	return
 end
 
--- enable colorizer
 colorizer.setup({
 	"*",
 })

@@ -68,8 +68,8 @@ local opts = {
 }
 
 local mappings = {
-	["w"] = { "<cmd>w<CR>", "Save" },
-	["q"] = { "<cmd>q<CR>", "Quit" },
+	["w"] = { "<cmd>w!<CR>", "Save" },
+	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
 	p = {

@@ -1,8 +1,8 @@
 local components = require("kyle.plugins.lualine.components")
 
 -- import lualine plugin safely
-local status, lualine = pcall(require, "lualine")
-if not status then
+local status_ok, lualine = pcall(require, "lualine")
+if not status_ok then
 	return
 end
 

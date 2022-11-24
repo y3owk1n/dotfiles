@@ -1,23 +1,23 @@
 local icons = require("kyle.icons")
 
 -- import telescope plugin safely
-local telescope_setup, telescope = pcall(require, "telescope")
-if not telescope_setup then
+local telescope_setup_ok, telescope = pcall(require, "telescope")
+if not telescope_setup_ok then
 	return
 end
 
 -- import telescope actions safely
-local actions_setup, actions = pcall(require, "telescope.actions")
-if not actions_setup then
+local actions_setup_ok, actions = pcall(require, "telescope.actions")
+if not actions_setup_ok then
 	return
 end
 
-local previewers_setup, previewers = pcall(require, "telescope.previewers")
-if not previewers_setup then
+local previewers_setup_ok, previewers = pcall(require, "telescope.previewers")
+if not previewers_setup_ok then
 	return
 end
-local sorters_setup, sorters = pcall(require, "telescope.sorters")
-if not sorters_setup then
+local sorters_setup_ok, sorters = pcall(require, "telescope.sorters")
+if not sorters_setup_ok then
 	return
 end
 

@@ -1,8 +1,8 @@
 local icons = require("kyle.icons")
 
 -- import nvim-tree plugin safely
-local setup, nvimtree = pcall(require, "nvim-tree")
-if not setup then
+local status_ok, nvimtree = pcall(require, "nvim-tree")
+if not status_ok then
 	return
 end
 

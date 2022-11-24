@@ -1,6 +1,5 @@
--- import nvim-autopairs safely
-local autopairs_setup, autopairs = pcall(require, "nvim-autopairs")
-if not autopairs_setup then
+local status_ok, autopairs = pcall(require, "nvim-autopairs")
+if not status_ok then
 	return
 end
 

@@ -1,11 +1,10 @@
 local icons = require("kyle.icons")
--- import gitsigns plugin safely
-local setup, gitsigns = pcall(require, "gitsigns")
-if not setup then
+
+local status_ok, gitsigns = pcall(require, "gitsigns")
+if not status_ok then
 	return
 end
 
--- configure/enable gitsigns
 gitsigns.setup({
 	signs = {
 		add = {

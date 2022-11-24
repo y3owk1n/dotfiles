@@ -1,6 +1,6 @@
 -- import treesitter-context plugin safely
-local status, treesittercontext = pcall(require, "treesitter-context")
-if not status then
+local status_ok, treesittercontext = pcall(require, "treesitter-context")
+if not status_ok then
 	return
 end
 

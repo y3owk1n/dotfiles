@@ -1,7 +1,7 @@
 local icons = require("kyle.icons")
 -- import indent blankline plugin safely
-local setup, indent = pcall(require, "indent_blankline")
-if not setup then
+local status_ok, indent = pcall(require, "indent_blankline")
+if not status_ok then
 	return
 end
 

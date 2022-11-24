@@ -1,6 +1,5 @@
--- import comment plugin safely
-local setup, comment = pcall(require, "Comment")
-if not setup then
+local status_ok, comment = pcall(require, "Comment")
+if not status_ok then
 	return
 end
 

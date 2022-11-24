@@ -1,13 +1,13 @@
 local icons = require("kyle.icons")
 -- import nvim-cmp plugin safely
-local cmp_status, cmp = pcall(require, "cmp")
-if not cmp_status then
+local cmp_status_ok, cmp = pcall(require, "cmp")
+if not cmp_status_ok then
 	return
 end
 
 -- import luasnip plugin safely
-local luasnip_status, luasnip = pcall(require, "luasnip")
-if not luasnip_status then
+local luasnip_status_ok, luasnip = pcall(require, "luasnip")
+if not luasnip_status_ok then
 	return
 end
 
@@ -72,12 +72,25 @@ cmp.setup({
 	},
 	-- sources for autocompletion
 	sources = cmp.config.sources({
-		{ name = "nvim_lsp" }, -- lsp
+		{ name = "nvim_lsp", max_item_count = 30 }, -- tsserver likes to send back _everything_
 		{ name = "nvim_lua" }, -- lua
 		{ name = "luasnip" }, -- snippets
-		{ name = "buffer" }, -- text within current buffer
+		{ name = "buffer", keyword_length = 3 }, -- don't complete from buffer right away
 		{ name = "path" }, -- file system paths
 	}),
+	sorting = {
+		comparators = {
+			cmp.config.compare.offset,
+			cmp.config.compare.exact,
+			cmp.config.compare.score,
+			cmp.config.compare.recently_used,
+			cmp.config.compare.locality,
+			cmp.config.compare.kind,
+			cmp.config.compare.sort_text,
+			cmp.config.compare.length,
+			cmp.config.compare.order,
+		},
+	},
 	-- configure lspkind for vs-code like icons
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
