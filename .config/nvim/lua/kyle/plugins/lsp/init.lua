@@ -3,6 +3,6 @@ if not status_ok then
     return
 end
 
-require("kyle.plugins.lsp.mason")
-require("kyle.plugins.lsp.handlers").setup()
-require("kyle.plugins.lsp.null-ls")
+-- require("kyle.plugins.lsp.mason")
+-- require("kyle.plugins.lsp.handlers").setup()
+-- require("kyle.plugins.lsp.null-ls")

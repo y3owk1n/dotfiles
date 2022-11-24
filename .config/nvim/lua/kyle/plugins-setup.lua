@@ -45,105 +45,225 @@ packer.init({
 -- add list of plugins to install
 return packer.startup(function(use)
 	-- packer can manage itself
-	use("wbthomason/packer.nvim") -- packer as package manager
+	use({ "wbthomason/packer.nvim" }) -- packer as package manager
 
-	use({ "nvim-lua/plenary.nvim" }) -- lua functions that many plugins use
+	use({ "nvim-lua/plenary.nvim", mode = "plenary" }) -- lua functions that many plugins use
 
-	use("lewis6991/impatient.nvim") -- optimisation
+	use({ "lewis6991/impatient.nvim" }) -- optimisation
 
 	use({ "dstein64/vim-startuptime" })
 
-	use({ "folke/which-key.nvim" }) -- which key
-
 	use({ "catppuccin/nvim", as = "catppuccin" }) -- catppuccin colorscheme
 
-	-- essential plugins
-	use({ "tpope/vim-surround" }) -- add, delete, change surroundings (it's awesome)
+	use({ "kyazdani42/nvim-web-devicons", after = "catppuccin" })
 
-	-- commenting with gc
-	use("numToStr/Comment.nvim")
-	use({ "JoosepAlviste/nvim-ts-context-commentstring" }) -- add support for tsx/jsx
-
-	-- toggle terminal
-	use("akinsho/toggleterm.nvim")
-
-	-- file explorer
-	use("nvim-tree/nvim-tree.lua")
-
-	-- vs-code like icons
-	use("kyazdani42/nvim-web-devicons")
-
-	-- statusline
-	use("nvim-lualine/lualine.nvim")
-
-	-- smooth scroll
-	-- use("declancm/cinnamon.nvim")
-	use("karb94/neoscroll.nvim")
-
-	-- fuzzy finding w/ telescope
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
 	use({
-		"nvim-telescope/telescope.nvim",
-		branch = "0.1.x",
-	}) -- fuzzy finder
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = function()
+			require("kyle.plugins.lualine")
+		end,
+		after = "catppuccin",
+	})
+
+	use({
+		"nvim-tree/nvim-tree.lua",
+		opt = true,
+		config = function()
+			require("kyle.plugins.nvim-tree")
+		end,
+		cmd = {
+			"NvimTreeClipboard",
+			"NvimTreeClose",
+			"NvimTreeFindFile",
+			"NvimTreeOpen",
+			"NvimTreeRefresh",
+			"NvimTreeToggle",
+		},
+		event = "VimEnter",
+	})
+
+	use({
+		"neovim/nvim-lspconfig",
+		config = function()
+			require("kyle.plugins.lsp")
+		end,
+		requires = {
+			-- { 'b0o/SchemaStore.nvim' },
+			-- { 'williamboman/nvim-lsp-installer' },
+			-- { 'jose-elias-alvarez/nvim-lsp-ts-utils' },
+			{
+				"jose-elias-alvarez/null-ls.nvim",
+				config = function()
+					require("kyle.plugins.lsp.null-ls")
+				end,
+				after = "nvim-lspconfig",
+			},
+			{
+				"williamboman/mason.nvim",
+				config = function()
+					require("kyle.plugins.lsp.mason")
+				end,
+				after = "nvim-lspconfig",
+			},
+			{ "jayp0521/mason-null-ls.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
+			-- {
+			--   'ray-x/lsp_signature.nvim',
+			--   config = function()
+			--     require('cosmic.plugins.lsp-signature')
+			--   end,
+			--   after = 'nvim-lspconfig',
+			-- },
+		},
+		event = "BufWinEnter",
+	})
 
 	-- autocompletion
 	use({
 		"hrsh7th/nvim-cmp",
-	}) -- completion plugin
-	use("hrsh7th/cmp-buffer") -- source for text in buffer
-	use("hrsh7th/cmp-path") -- source for file system paths
+		config = function()
+			require("kyle.plugins.nvim-cmp")
+		end,
+		requires = {
+			{
+				"L3MON4D3/LuaSnip",
+				requires = {
+					"rafamadriz/friendly-snippets",
+				},
+			},
+			{
+				"hrsh7th/cmp-nvim-lsp",
+				config = function()
+					require("kyle.plugins.lsp.handlers")
+				end,
+				after = "nvim-cmp",
+			},
+			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-path", after = "nvim-cmp" },
+			{
+				"windwp/nvim-autopairs",
+				config = function()
+					require("kyle.plugins.autopairs")
+				end,
+				after = "nvim-cmp",
+			},
+		},
+		event = "InsertEnter",
+	})
 
-	-- snippets
 	use({
-		"L3MON4D3/LuaSnip",
-	}) -- snippet engine
-	use("saadparwaiz1/cmp_luasnip") -- for autocompletion
-	use("rafamadriz/friendly-snippets") -- useful snippets
-
-	-- managing & installing lsp servers, linters & formatters
-	use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
-	use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
-
-	-- configuring lsp servers
-	use({ "neovim/nvim-lspconfig" }) -- easily configure language servers
-	use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
-	use("hrsh7th/cmp-nvim-lua")
-	use("rmagatti/goto-preview")
-
-	-- formatting & linting
-	use({ "jose-elias-alvarez/null-ls.nvim" }) -- configure formatters & linters
-	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
-
-	-- treesitter configuration
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			require("nvim-treesitter.install").update({ with_sync = true })
+		"lewis6991/gitsigns.nvim",
+		requires = { "nvim-lua/plenary.nvim" },
+		opt = true,
+		event = "BufWinEnter",
+		config = function()
+			require("kyle.plugins.gitsigns")
 		end,
 	})
-	use({ "nvim-treesitter/nvim-treesitter-context" }) -- stick functions line to the top
 
-	-- colorizer
-	use({ "norcalli/nvim-colorizer.lua" })
-
-	-- bufferline
-	use({ "akinsho/nvim-bufferline.lua" })
-
-	-- auto closing
 	use({
-		"windwp/nvim-autopairs",
-	}) -- autoclose parens, brackets, quotes, etc...
-	use({ "windwp/nvim-ts-autotag" }) -- autoclose tags
+		"akinsho/toggleterm.nvim",
+		opt = true,
+		event = "BufWinEnter",
+		config = function()
+			require("kyle.plugins.toggleterm")
+		end,
+	})
 
-	-- git integration
-	use({ "lewis6991/gitsigns.nvim" }) -- show line modifications on left hand side
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = {
+			-- 'nvim-lua/popup.nvim',
+			"nvim-lua/plenary.nvim",
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				run = "make",
+			},
+		},
+		config = function()
+			require("kyle.plugins.telescope")
+		end,
+		event = "BufWinEnter",
+	})
 
-	-- indent blankline
-	use({ "lukas-reineke/indent-blankline.nvim" })
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		requires = {
+			"windwp/nvim-ts-autotag",
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			"nvim-treesitter/nvim-treesitter-context",
+			-- 'nvim-treesitter/nvim-treesitter-refactor',
+		},
+		run = ":TSUpdate",
+		config = function()
+			require("kyle.plugins.treesitter")
+		end,
+	})
 
-	-- harpoon
-	use({ "ThePrimeagen/harpoon" }) -- project markings
+	use({
+		"numToStr/Comment.nvim",
+		opt = true,
+		config = function()
+			require("kyle.plugins.comment")
+		end,
+		event = "BufWinEnter",
+	})
+
+	use({
+		"norcalli/nvim-colorizer.lua",
+		opt = true,
+		cmd = { "ColorizerToggle" },
+		config = function()
+			require("kyle.plugins.colorizer")
+		end,
+	})
+
+	use({
+		"folke/which-key.nvim",
+		opt = true,
+		config = function()
+			require("kyle.plugins.which-key")
+		end,
+		keys = "<space>",
+	})
+
+	use({
+		"kylechui/nvim-surround",
+		opt = true,
+		require = "nvim-treesitter/nvim-treesitter",
+		-- opt for sandwitch for now until some issue been addressed
+		-- event = { "CursorMoved", "CursorMovedI" },
+		config = function()
+			require("nvim-surround").setup({})
+		end,
+		event = "BufWinEnter",
+	}) -- add, delete, change surroundings (it's awesome)
+
+	use({
+		"karb94/neoscroll.nvim",
+		opt = true,
+		config = function()
+			require("kyle.plugins.neoscroll")
+		end,
+		event = "BufWinEnter",
+	})
+
+	use({
+		"akinsho/nvim-bufferline.lua",
+		event = "UIEnter",
+		config = function()
+			require("kyle.plugins.bufferline")
+		end,
+		opt = true,
+	})
+
+	use({ "lukas-reineke/indent-blankline.nvim", event = "BufWinEnter", after = "nvim-treesitter", opt = true })
+
+	use({ "ThePrimeagen/harpoon", event = "BufWinEnter", opt = true }) -- project markings
 
 	if packer_bootstrap then
 		require("packer").sync()
