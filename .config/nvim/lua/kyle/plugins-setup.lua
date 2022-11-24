@@ -68,7 +68,6 @@ return packer.startup(function(use)
 
 	use({
 		"nvim-tree/nvim-tree.lua",
-		opt = true,
 		config = function()
 			require("kyle.plugins.nvim-tree")
 		end,
@@ -85,6 +84,7 @@ return packer.startup(function(use)
 
 	use({
 		"neovim/nvim-lspconfig",
+
 		config = function()
 			require("kyle.plugins.lsp")
 		end,
@@ -106,8 +106,8 @@ return packer.startup(function(use)
 				end,
 				after = "nvim-lspconfig",
 			},
-			{ "jayp0521/mason-null-ls.nvim" },
-			{ "williamboman/mason-lspconfig.nvim" },
+			{ "jayp0521/mason-null-ls.nvim", after = { "null-ls.nvim", "nvim-lspconfig", "mason.nvim" } },
+			{ "williamboman/mason-lspconfig.nvim"},
 			-- {
 			--   'ray-x/lsp_signature.nvim',
 			--   config = function()
@@ -139,13 +139,15 @@ return packer.startup(function(use)
 				end,
 				after = "nvim-cmp",
 			},
-			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
-			{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
-			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
-			{ "hrsh7th/cmp-path", after = "nvim-cmp" },
+			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp",  },
+			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp",  },
+			{ "hrsh7th/cmp-buffer", after = "nvim-cmp",  },
+			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp",  },
+			{ "hrsh7th/cmp-path", after = "nvim-cmp",  },
 			{
 				"windwp/nvim-autopairs",
+				
+
 				config = function()
 					require("kyle.plugins.autopairs")
 				end,
@@ -216,7 +218,6 @@ return packer.startup(function(use)
 	use({
 		"norcalli/nvim-colorizer.lua",
 		opt = true,
-		cmd = { "ColorizerToggle" },
 		config = function()
 			require("kyle.plugins.colorizer")
 		end,
