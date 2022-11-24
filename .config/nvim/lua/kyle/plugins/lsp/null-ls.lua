@@ -22,7 +22,9 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.beautysh,
 		formatting.eslint_d,
-		formatting.prismaFmt,
+		formatting.prismaFmt.with({
+			extra_args = { "-s", "4" },
+		}),
 		-- completion
 		completion.luasnip,
 		-- diagnostics
@@ -42,7 +44,7 @@ null_ls.setup({
 	on_attach = function(current_client, bufnr)
 		if current_client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-			vim.api.nvim_create_autocmd("BufWritePre", {
+			vim.api.nvim_create_autocmd("BufWritePost", {
 				group = augroup,
 				buffer = bufnr,
 				callback = function()
