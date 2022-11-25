@@ -9,7 +9,6 @@ window:
         y: 10
     decorations: buttonless
     opacity: 0.95
-    # title: Alacritty
     dynamic_title: true
 
 scrolling:
