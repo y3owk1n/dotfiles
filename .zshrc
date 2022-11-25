@@ -7,6 +7,7 @@ plug "hlissner/zsh-autopair"
 plug "esc/conda-zsh-completion"
 plug "jeffreytse/zsh-vi-mode"
 plug "zsh-users/zsh-syntax-highlighting"
+plug "olets/zsh-window-title"
 
 # Theme
 plug "zap-zsh/zap-prompt"
@@ -62,7 +63,7 @@ alias dc="yadm commit -m"
 alias dp="yadm push"
 
 # use lunarvim as editor for terminal
-export EDITOR='lvim'
+export EDITOR='nvim'
 
 # ls after cd
 if ! (( $chpwd_functions[(I)chpwd_cdls] )); then
@@ -88,7 +89,6 @@ export PATH="$PNPM_HOME:$PATH"
 
 # yarn
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-
 
 # auto jump
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh

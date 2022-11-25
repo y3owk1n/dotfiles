@@ -1,6 +1,7 @@
 local opt = vim.opt -- for conciseness
 
 opt.backup = false -- creates a backup file
+opt.title = true
 opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
 opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
