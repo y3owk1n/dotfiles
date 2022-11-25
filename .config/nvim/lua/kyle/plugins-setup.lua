@@ -68,6 +68,7 @@ return packer.startup(function(use)
 
 	use({
 		"nvim-tree/nvim-tree.lua",
+		opt = true,
 		config = function()
 			require("kyle.plugins.nvim-tree")
 		end,
@@ -107,7 +108,7 @@ return packer.startup(function(use)
 				after = "nvim-lspconfig",
 			},
 			{ "jayp0521/mason-null-ls.nvim", after = { "null-ls.nvim", "nvim-lspconfig", "mason.nvim" } },
-			{ "williamboman/mason-lspconfig.nvim"},
+			{ "williamboman/mason-lspconfig.nvim" },
 			-- {
 			--   'ray-x/lsp_signature.nvim',
 			--   config = function()
@@ -122,16 +123,20 @@ return packer.startup(function(use)
 	-- autocompletion
 	use({
 		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
 		config = function()
 			require("kyle.plugins.nvim-cmp")
 		end,
+		wants = { "LuaSnip" },
 		requires = {
 			{
 				"L3MON4D3/LuaSnip",
-				requires = {
-					"rafamadriz/friendly-snippets",
-				},
+				wants = "friendly-snippets",
+				-- requires = {
+				-- 	"rafamadriz/friendly-snippets",
+				-- },
 			},
+			"rafamadriz/friendly-snippets",
 			{
 				"hrsh7th/cmp-nvim-lsp",
 				config = function()
@@ -139,22 +144,19 @@ return packer.startup(function(use)
 				end,
 				after = "nvim-cmp",
 			},
-			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp",  },
-			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp",  },
-			{ "hrsh7th/cmp-buffer", after = "nvim-cmp",  },
-			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp",  },
-			{ "hrsh7th/cmp-path", after = "nvim-cmp",  },
+			{ "saadparwaiz1/cmp_luasnip", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-buffer", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" },
+			{ "hrsh7th/cmp-path", after = "nvim-cmp" },
 			{
 				"windwp/nvim-autopairs",
-				
-
 				config = function()
 					require("kyle.plugins.autopairs")
 				end,
 				after = "nvim-cmp",
 			},
 		},
-		event = "InsertEnter",
 	})
 
 	use({
@@ -194,21 +196,26 @@ return packer.startup(function(use)
 
 	use({
 		"nvim-treesitter/nvim-treesitter",
+		opt = true,
 		requires = {
-			"windwp/nvim-ts-autotag",
-			"JoosepAlviste/nvim-ts-context-commentstring",
-			"nvim-treesitter/nvim-treesitter-context",
+			{ "windwp/nvim-ts-autotag" },
+			{ "JoosepAlviste/nvim-ts-context-commentstring" },
+			{ "nvim-treesitter/nvim-treesitter-context" },
 			-- 'nvim-treesitter/nvim-treesitter-refactor',
 		},
 		run = ":TSUpdate",
 		config = function()
 			require("kyle.plugins.treesitter")
 		end,
+		event = "BufRead",
 	})
 
 	use({
 		"numToStr/Comment.nvim",
 		opt = true,
+		requires = {
+			{ "JoosepAlviste/nvim-ts-context-commentstring" },
+		},
 		config = function()
 			require("kyle.plugins.comment")
 		end,
@@ -221,6 +228,7 @@ return packer.startup(function(use)
 		config = function()
 			require("kyle.plugins.colorizer")
 		end,
+		event = "BufWinEnter",
 	})
 
 	use({
@@ -229,7 +237,8 @@ return packer.startup(function(use)
 		config = function()
 			require("kyle.plugins.which-key")
 		end,
-		keys = "<space>",
+		-- keys = "<space>",
+		event = "VimEnter",
 	})
 
 	use({
@@ -242,7 +251,7 @@ return packer.startup(function(use)
 			require("nvim-surround").setup({})
 		end,
 		event = "BufWinEnter",
-	}) -- add, delete, change surroundings (it's awesome)
+	})
 
 	use({
 		"karb94/neoscroll.nvim",
@@ -262,7 +271,7 @@ return packer.startup(function(use)
 		opt = true,
 	})
 
-	use({ "lukas-reineke/indent-blankline.nvim", event = "BufWinEnter", after = "nvim-treesitter", opt = true })
+	use({ "lukas-reineke/indent-blankline.nvim", event = "BufReadPre", after = "nvim-treesitter", opt = true })
 
 	use({ "ThePrimeagen/harpoon", event = "BufWinEnter", opt = true }) -- project markings
 

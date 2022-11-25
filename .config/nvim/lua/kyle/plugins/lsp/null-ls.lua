@@ -18,9 +18,19 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		-- formatting
-		formatting.prettier,
+		formatting.prettier.with({
+			extra_args = {
+				"--print-width=80",
+				"--tab-width=4",
+				"--use-tabs=true",
+				"--bracket-same-line=true",
+				"--single-attribute-per-line=true",
+			},
+		}),
 		formatting.stylua,
-		formatting.beautysh,
+		formatting.beautysh.with({
+			extra_args = { "-i=4" },
+		}),
 		formatting.eslint_d,
 		formatting.prismaFmt.with({
 			extra_args = { "-s", "4" },
