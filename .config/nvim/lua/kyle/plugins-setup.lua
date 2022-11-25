@@ -132,11 +132,10 @@ return packer.startup(function(use)
 			{
 				"L3MON4D3/LuaSnip",
 				wants = "friendly-snippets",
-				-- requires = {
-				-- 	"rafamadriz/friendly-snippets",
-				-- },
+				requires = {
+					"rafamadriz/friendly-snippets",
+				},
 			},
-			"rafamadriz/friendly-snippets",
 			{
 				"hrsh7th/cmp-nvim-lsp",
 				config = function()
