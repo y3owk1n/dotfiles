@@ -25,7 +25,6 @@ lualine.setup({
 		},
 		lualine_c = {
 			components.diff,
-			components.python_env,
 		},
 		lualine_x = {
 			components.diagnostics,
@@ -47,7 +46,6 @@ lualine.setup({
 		},
 		lualine_c = {
 			components.diff,
-			components.python_env,
 		},
 		lualine_x = {
 			components.diagnostics,

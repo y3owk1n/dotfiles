@@ -36,8 +36,8 @@ M.setup = function()
 			style = "minimal",
 			border = "rounded",
 			source = "always",
-			header = "",
-			prefix = "",
+			header = " ",
+			prefix = " ",
 		},
 	}
 

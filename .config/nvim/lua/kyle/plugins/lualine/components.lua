@@ -50,22 +50,6 @@ return {
 		},
 		cond = nil,
 	},
-	python_env = {
-		function()
-			local utils = require("core.lualine.utils")
-			if vim.bo.filetype == "python" then
-				local venv = os.getenv("CONDA_DEFAULT_ENV") or os.getenv("VIRTUAL_ENV")
-				if venv then
-					local devicons = require("nvim-web-devicons")
-					local py_icon, _ = devicons.get_icon(".py")
-					return string.format(" " .. py_icon .. " (%s)", utils.env_cleanup(venv))
-				end
-			end
-			return ""
-		end,
-		color = { fg = colors.green },
-		cond = conditions.hide_in_width,
-	},
 	diagnostics = {
 		"diagnostics",
 		sources = { "nvim_diagnostic" },
@@ -109,14 +93,14 @@ return {
 				end
 			end
 
+			local null_ls_methods = require("kyle.plugins.lsp.null-ls")
+
 			-- add formatter
-			local formatters = require("kyle.plugins.lsp.formatter")
-			local supported_formatters = formatters.list_registered(buf_ft)
+			local supported_formatters = null_ls_methods.formatter_list_registered(buf_ft)
 			vim.list_extend(buf_client_names, supported_formatters)
 
 			-- add linter
-			local linters = require("kyle.plugins.lsp.linter")
-			local supported_linters = linters.list_registered(buf_ft)
+			local supported_linters = null_ls_methods.linter_list_registered(buf_ft)
 			vim.list_extend(buf_client_names, supported_linters)
 
 			local unique_client_names = vim.fn.uniq(buf_client_names)
