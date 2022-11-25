@@ -40,8 +40,9 @@ opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift 
 opt.wrap = false -- display lines as one long line
 opt.scrolloff = 8 -- minimal number of screen lines to keep above and below the cursor
 opt.sidescrolloff = 8 -- minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
-opt.fillchars.eob = " " -- show empty lines at the end of a buffer as ` ` {default `~`}
+opt.fillchars:append {eob = " "} -- show empty lines at the end of a buffer as ` ` {default `~`}
 opt.shortmess:append("c") -- hide all the completion messages, e.g. "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found"
+opt.shortmess:append "I" -- don't show the default intro message
 opt.whichwrap:append("<,>,[,],h,l") -- keys allowed to move to the previous/next line when the beginning/end of line is reached
 opt.iskeyword:append("-") -- treats words with `-` as single words
 opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done
