@@ -8,7 +8,7 @@ end
 gitsigns.setup({
 	signs = {
 		add = {
-			hl = "GitSignsAdd",
+                hl = "GitSignsAdd",
 			text = icons.ui.BoldLineLeft,
 			numhl = "GitSignsAddNr",
 			linehl = "GitSignsAddLn",

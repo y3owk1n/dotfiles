@@ -72,6 +72,7 @@ local mappings = {
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+	["f"] = { "<cmd>Telescope find_files<CR>", "Find files" },
 	p = {
 		name = "Packer",
 		c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -79,6 +80,7 @@ local mappings = {
 		s = { "<cmd>PackerSync<cr>", "Sync" },
 		S = { "<cmd>PackerStatus<cr>", "Status" },
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
+		p = { "<cmd>PackerProfile<cr>", "Profile" },
 	},
 	g = {
 		name = "Git",
@@ -116,9 +118,8 @@ local mappings = {
 		s = { ":LspRestart<CR>", "Restart" },
 		e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
 	},
-	f = {
+	s = {
 		name = "Search",
-		f = { "<cmd>Telescope find_files<cr>", "Find File" },
 		t = { "<cmd>Telescope live_grep<cr>", "Text" },
 		s = { "<cmd>Telescope grep_string<cr>", "Cursor string" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
@@ -137,7 +138,7 @@ local mappings = {
 }
 
 local vopts = {
-	mode = "v", -- NORMAL mode
+	mode = "v", -- VISUAL mode
 	prefix = "<leader>",
 	buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
 	silent = true, -- use `silent` when creating keymaps

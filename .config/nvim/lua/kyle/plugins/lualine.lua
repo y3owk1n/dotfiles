@@ -29,7 +29,7 @@ lualine.setup({
 		},
 		lualine_x = {
 			components.diagnostics,
-			-- components.lsp,
+			components.lsp,
 			components.spaces,
 			components.filetype,
 		},
@@ -51,7 +51,7 @@ lualine.setup({
 		},
 		lualine_x = {
 			components.diagnostics,
-			-- components.lsp,
+			components.lsp,
 			components.spaces,
 			components.filetype,
 		},

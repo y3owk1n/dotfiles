@@ -88,47 +88,50 @@ return {
 		end,
 		cond = conditions.hide_in_width,
 	},
-	-- lsp = {
-	-- 	function(msg)
-	-- 		msg = msg or "LS Inactive"
-	-- 		local buf_clients = vim.lsp.buf_get_clients()
-	-- 		if next(buf_clients) == nil then
-	-- 			-- TODO: clean up this if statement
-	-- 			if type(msg) == "boolean" or #msg == 0 then
-	-- 				return "LS Inactive"
-	-- 			end
-	-- 			return msg
-	-- 		end
-	-- 		local buf_ft = vim.bo.filetype
-	-- 		local buf_client_names = {}
+	lsp = {
+		function(msg)
+			msg = msg or "LS Inactive"
+			local buf_clients = vim.lsp.buf_get_clients()
+			if next(buf_clients) == nil then
+				-- TODO: clean up this if statement
+				if type(msg) == "boolean" or #msg == 0 then
+					return "LS Inactive"
+				end
+				return msg
+			end
+			local buf_ft = vim.bo.filetype
+			local buf_client_names = {}
 
-	-- 		-- add client
-	-- 		for _, client in pairs(buf_clients) do
-	-- 			if client.name ~= "null-ls" then
-	-- 				table.insert(buf_client_names, client.name)
-	-- 			end
-	-- 		end
+			-- add client
+			for _, client in pairs(buf_clients) do
+				if client.name ~= "null-ls" then
+					table.insert(buf_client_names, client.name)
+				end
+			end
 
-	-- 		-- add formatter
-	-- 		-- local formatters = require("lsp.null-ls.formatters")
-	-- 		local formatters = require("kyle.plugins.lsp.null-ls.formatter")
-	-- 		local supported_formatters = formatters.list_registered(buf_ft)
-	-- 		vim.list_extend(buf_client_names, supported_formatters)
+			-- add formatter
+			local formatters = require("kyle.plugins.lsp.formatter")
+			local supported_formatters = formatters.list_registered(buf_ft)
+			vim.list_extend(buf_client_names, supported_formatters)
 
-	-- 		-- add linter
-	-- 		local linters = require("lsp.null-ls.linters")
-	-- 		local supported_linters = linters.list_registered(buf_ft)
-	-- 		vim.list_extend(buf_client_names, supported_linters)
+			-- add linter
+			local linters = require("kyle.plugins.lsp.linter")
+			local supported_linters = linters.list_registered(buf_ft)
+			vim.list_extend(buf_client_names, supported_linters)
 
-	-- 		local unique_client_names = vim.fn.uniq(buf_client_names)
+			local unique_client_names = vim.fn.uniq(buf_client_names)
 
-	-- 		local language_servers = "[" .. table.concat(unique_client_names, ", ") .. "]"
+			if next(unique_client_names) == nil then
+				return ""
+			end
 
-	-- 		return language_servers
-	-- 	end,
-	-- 	color = { gui = "bold" },
-	-- 	cond = conditions.hide_in_width,
-	-- },
+			local language_servers = "[" .. table.concat(unique_client_names, ", ") .. "]"
+
+			return language_servers
+		end,
+		color = { gui = "bold" },
+		cond = conditions.hide_in_width,
+	},
 	location = { "location" },
 	progress = {
 		"progress",
