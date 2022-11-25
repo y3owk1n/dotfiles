@@ -1,15 +1,12 @@
 theme = 'catppuccin_macchiato'
 
 [editor]
-line-number = "relative"
-mouse = false
 scrolloff = 8
+mouse = false
+middle-click-paste = false
+line-number = "relative"
+cursorline = true
 true-color = true
-
-[editor.cursor-shape]
-insert = "bar"
-normal = "block"
-select = "block"
 
 [editor.statusline]
 left = ["mode", "spinner"]
@@ -19,6 +16,11 @@ separator = "│"
 
 [editor.lsp]
 display-messages = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "block"
 
 [editor.indent-guides]
 render = true
