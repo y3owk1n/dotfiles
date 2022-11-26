@@ -1,6 +1,8 @@
 theme = 'catppuccin_macchiato'
 
 [editor]
+auto-completion = true
+auto-format = true
 scrolloff = 8
 mouse = false
 middle-click-paste = false

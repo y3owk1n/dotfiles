@@ -1,0 +1,60 @@
+# TOML
+[[language]]
+name = "toml"
+indent = { tab-width = 4, unit = "  " }
+
+# JSON
+[[language]]
+name = "json"
+indent = { tab-width = 4, unit = "  " }
+
+# JS, JSX, TS, TSX
+[[language]]
+name = "javascript"
+indent = { tab-width = 4, unit = "  " }
+
+[[language]]
+name = "jsx"
+indent = { tab-width = 4, unit = "  " }
+
+[[language]]
+name = "typescript"
+indent = { tab-width = 4, unit = "  " }
+
+[[language]]
+name = "tsx"
+indent = { tab-width = 4, unit = "  " }
+
+# CSS & SCSS
+[[language]]
+name = "css"
+indent = { tab-width = 4, unit = "  " }
+
+[[language]]
+name = "scss"
+indent = { tab-width = 4, unit = "  " }
+
+# HTML
+[[language]]
+name = "html"
+indent = { tab-width = 4, unit = "  " }
+
+# BASH
+[[language]]
+name = "bash"
+indent = { tab-width = 4, unit = "  " }
+
+# LUA
+[[language]]
+name = "lua"
+indent = { tab-width = 4, unit = "  " }
+
+# YAML
+[[language]]
+name = "yaml"
+indent = { tab-width = 4, unit = "  " }
+
+# PRISMA
+[[language]]
+name = "prisma"
+indent = { tab-width = 4, unit = "  " }
