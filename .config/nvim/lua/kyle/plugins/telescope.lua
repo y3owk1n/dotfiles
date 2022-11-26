@@ -31,20 +31,18 @@ telescope.setup({
 	sorting_strategy = "descending",
 	layout_strategy = "horizontal",
 	layout_config = {
-		layout_config = {
-			width = 0.75,
-			preview_cutoff = 120,
-			horizontal = {
-				preview_width = function(_, cols, _)
-					if cols < 120 then
-						return math.floor(cols * 0.5)
-					end
-					return math.floor(cols * 0.6)
-				end,
-				mirror = false,
-			},
-			vertical = { mirror = false },
+		width = 0.75,
+		preview_cutoff = 120,
+		horizontal = {
+			preview_width = function(_, cols, _)
+				if cols < 120 then
+					return math.floor(cols * 0.5)
+				end
+				return math.floor(cols * 0.6)
+			end,
+			mirror = false,
 		},
+		vertical = { mirror = false },
 	},
 	vimgrep_arguments = {
 		"rg",
