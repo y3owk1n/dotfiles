@@ -61,7 +61,6 @@ treesitter.setup({
 		"markdown",
 		"bash",
 		"lua",
-		"vim",
 		"gitignore",
 	},
 	-- auto install above language parsers
