@@ -30,9 +30,16 @@ render = true
 character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
 skip-levels = 1
 
+[editor.file-picker]
+hidden = false
+parents = false
+ignore = false
+git-ignore = false
+git-global = false
+git-exclude = false
+
 [keys.normal]
 
 [keys.normal.space]
 "q" = ":q"
 "w" = ":w"
-
