@@ -9,6 +9,7 @@ middle-click-paste = false
 line-number = "relative"
 cursorline = true
 true-color = true
+color-modes = true
 
 [editor.statusline]
 left = ["mode", "spinner"]
