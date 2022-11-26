@@ -244,8 +244,6 @@ return packer.startup(function(use)
 		"kylechui/nvim-surround",
 		opt = true,
 		require = "nvim-treesitter/nvim-treesitter",
-		-- opt for sandwitch for now until some issue been addressed
-		-- event = { "CursorMoved", "CursorMovedI" },
 		config = function()
 			require("nvim-surround").setup({})
 		end,
