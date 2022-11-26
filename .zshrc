@@ -52,6 +52,7 @@ alias gs="git status"
 alias ga="git add"
 alias gaa="git add ."
 alias gc="git commit -m"
+alias gd="git diff"
 alias gp="git push"
 
 # yadm alias for dot files
@@ -60,6 +61,7 @@ alias da="yadm add"
 alias daa="yadm add ."
 alias dau="yadm add -u"
 alias dc="yadm commit -m"
+alias dd="yadm diff"
 alias dp="yadm push"
 
 # use lunarvim as editor for terminal
