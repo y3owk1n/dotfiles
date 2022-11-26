@@ -51,7 +51,7 @@ return packer.startup(function(use)
 
 	use({ "lewis6991/impatient.nvim" }) -- optimisation
 
-	use({ "dstein64/vim-startuptime" })
+	-- use({ "dstein64/vim-startuptime" })
 
 	use({ "catppuccin/nvim", as = "catppuccin" }) -- catppuccin colorscheme
 
