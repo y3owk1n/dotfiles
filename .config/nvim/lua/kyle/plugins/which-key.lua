@@ -133,7 +133,7 @@ local mappings = {
 	h = {
 		name = "Harpoon",
 		a = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add mark" },
-		e = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" },
+		e = { "<cmd>Telescope harpoon marks<CR>", "Menu" },
 	},
 }
 

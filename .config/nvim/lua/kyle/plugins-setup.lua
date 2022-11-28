@@ -90,7 +90,7 @@ return packer.startup(function(use)
 			require("kyle.plugins.lsp")
 		end,
 		requires = {
-			-- { 'b0o/SchemaStore.nvim' },
+			-- { "b0o/SchemaStore.nvim", after = "nvim-lspconfig" },
 			-- { 'williamboman/nvim-lsp-installer' },
 			-- { 'jose-elias-alvarez/nvim-lsp-ts-utils' },
 			{
@@ -177,6 +177,8 @@ return packer.startup(function(use)
 		end,
 	})
 
+	-- use({ "ThePrimeagen/harpoon", event = "BufWinEnter", opt = true }) -- project markings
+
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = {
@@ -185,6 +187,9 @@ return packer.startup(function(use)
 			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 				run = "make",
+			},
+			{
+				"ThePrimeagen/harpoon",
 			},
 		},
 		config = function()
@@ -250,14 +255,14 @@ return packer.startup(function(use)
 		event = "BufWinEnter",
 	})
 
-	use({
-		"karb94/neoscroll.nvim",
-		opt = true,
-		config = function()
-			require("kyle.plugins.neoscroll")
-		end,
-		event = "BufWinEnter",
-	})
+	-- use({
+	-- 	"karb94/neoscroll.nvim",
+	-- 	opt = true,
+	-- 	config = function()
+	-- 		require("kyle.plugins.neoscroll")
+	-- 	end,
+	-- 	event = "BufWinEnter",
+	-- })
 
 	use({
 		"akinsho/nvim-bufferline.lua",
@@ -269,8 +274,6 @@ return packer.startup(function(use)
 	})
 
 	use({ "lukas-reineke/indent-blankline.nvim", event = "BufReadPre", after = "nvim-treesitter", opt = true })
-
-	use({ "ThePrimeagen/harpoon", event = "BufWinEnter", opt = true }) -- project markings
 
 	if packer_bootstrap then
 		require("packer").sync()
