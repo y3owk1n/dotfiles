@@ -21,11 +21,12 @@ alias brewrestartall="brew services restart --all"
 # general
 alias c="clear"
 alias x="exit"
-alias zc="lvim $HOME/.zshrc"
+alias zc="nvim $HOME/.zshrc"
 alias zr="source $HOME/.zshrc"
 alias nvimc="nvim $HOME/.config/nvim"
 alias lvimc="lvim $HOME/.config/lvim"
 alias hxc="hx $HOME/.config/helix"
+alias hxs="cd $HOME/CustomApp/helix"
 alias ..="cd .."
 alias ...="cd ../.."
 
