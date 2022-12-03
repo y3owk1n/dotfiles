@@ -54,7 +54,7 @@ yabai -m rule --add app="^Google Chrome|Arc|Safari$" space=1
 # Terminal
 yabai -m rule --add app="^(iTerm2|Terminal|Alacritty|kitty)$" space=2
 # Notes
-yabai -m rule --add app="^(Notion|Obsidian|Notes|Reminders)$" space=3
+yabai -m rule --add app="^(Notion|Obsidian|Notes|Reminders|Craft)$" space=3
 # Social
 yabai -m rule --add app="^(WhatsApp|Messages|Slack)$" space=4
 # Productivity
