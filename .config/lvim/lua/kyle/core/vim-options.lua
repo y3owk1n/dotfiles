@@ -26,7 +26,7 @@ vim.opt.incsearch = true -- follow the searches
 vim.opt.cursorline = true -- highlight the current cursor line
 
 -- scroll
-vim.opt.scrolloff = 8 -- set scroll offset to 8 lines
+vim.opt.scrolloff = 999 -- set scroll offset to maximum lines (will always be in middle)
 
 -- turn on termguicolors for nightfly colorscheme to work
 -- (have to use iterm2 or any other true color terminal)

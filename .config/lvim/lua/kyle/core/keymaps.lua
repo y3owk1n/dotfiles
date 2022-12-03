@@ -3,9 +3,11 @@ lvim.keys.normal_mode["<leader>h"] = false -- Disable default no highlight
 
 -- Bind new keymaps
 lvim.keys.normal_mode["x"] = '"_x' -- Delete single character without copy to register
+lvim.keys.normal_mode["d"] = '"_d' -- Delete whatever without copy to register
+lvim.keys.normal_mode["c"] = '"_c' -- Change whatever without copy to register
+
 lvim.keys.normal_mode["sv"] = ":vsplit<Return><C-w>w" -- Split window vertically
 lvim.keys.normal_mode["ss"] = ":split<Return><C-w>w" -- Split window horizontally
-lvim.keys.normal_mode["se"] = "<C-w>=" -- Make split window equal width & height
 lvim.keys.normal_mode["sx"] = ":close<CR>" -- Close current split window
 lvim.keys.normal_mode['sh'] = "<C-w>h" -- Move window left
 lvim.keys.normal_mode['sk'] = "<C-w>k" -- Move window up
@@ -21,6 +23,10 @@ lvim.builtin.which_key.mappings["c"] = {} -- remove close buffer from which-key
 lvim.builtin.which_key.mappings["b"] = {} -- remove buffer from which-key
 
 -- Bind new whichkeys
+
+lvim.builtin.which_key.mappings["w"] = {
+    "<cmd>:up<cr>", "Save"
+}
 
 lvim.builtin.which_key.mappings["T"] = {
     ":TodoTelescope<CR>", "Todo"
