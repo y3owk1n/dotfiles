@@ -33,3 +33,9 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- Move line up
 keymap.set("v", "K", ":m '>-2<CR>gv=gv") -- Move line down
 
 keymap.set("n", "<C-a>", "gg<S-v>G") -- Select all
+
+keymap.set("n", "<C-d>", "<C-d>zz") -- Half page down and center
+keymap.set("n", "<C-u>", "<C-u>zz") -- Half page up and center
+
+keymap.set("n", "n", "nzzzv") -- Next and center during search
+keymap.set("n", "N", "Nzzzv") -- Previous and center during search
