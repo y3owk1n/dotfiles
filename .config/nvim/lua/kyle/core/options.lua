@@ -38,7 +38,7 @@ opt.ruler = false -- hide the line and column number of the cursor position
 opt.numberwidth = 4 -- minimal number of columns to use for the line number {default 4}
 opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
 opt.wrap = false -- display lines as one long line
-opt.scrolloff = 8 -- minimal number of screen lines to keep above and below the cursor
+opt.scrolloff = 999 -- always in middle except top and bottom -- minimal number of screen lines to keep above and below the cursor
 opt.sidescrolloff = 8 -- minimal number of screen columns to keep to the left and right of the cursor if wrap is `false`
 opt.fillchars:append({ eob = " " }) -- show empty lines at the end of a buffer as ` ` {default `~`}
 opt.shortmess:append("c") -- hide all the completion messages, e.g. "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found"

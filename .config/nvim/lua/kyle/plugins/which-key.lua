@@ -67,8 +67,9 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
+
 local mappings = {
-	["w"] = { "<cmd>w!<CR>", "Save" },
+	["w"] = { "<cmd>:up<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
