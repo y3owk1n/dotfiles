@@ -67,10 +67,10 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
-
 local mappings = {
 	["w"] = { "<cmd>:up<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
+	["r"] = { "<cmd>:so<CR>", "Reload Config" },
 	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
 	["f"] = { "<cmd>Telescope find_files<CR>", "Find files" },
@@ -134,7 +134,8 @@ local mappings = {
 	h = {
 		name = "Harpoon",
 		a = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add mark" },
-		e = { "<cmd>Telescope harpoon marks<CR>", "Menu" },
+		t = { "<cmd>Telescope harpoon marks<CR>", "Telescope Menu" },
+		e = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Menu" },
 	},
 }
 
