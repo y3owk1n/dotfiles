@@ -43,17 +43,14 @@
                         ]
                     },
                     {
-                        "description": "Left ctrl + hjkl to arrow keys Vim",
+                        "description": "Change Control + h/j/k/l (j/c/v/p in MacOS Dvorak Layout) to Arrows",
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "h",
+                                    "key_code": "j",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                            "control"
                                         ]
                                     }
                                 },
@@ -66,13 +63,10 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "j",
+                                    "key_code": "c",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                            "control"
                                         ]
                                     }
                                 },
@@ -85,13 +79,10 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "k",
+                                    "key_code": "v",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                            "control"
                                         ]
                                     }
                                 },
@@ -104,13 +95,10 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "l",
+                                    "key_code": "p",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control"
-                                        ],
-                                        "optional": [
-                                            "any"
+                                            "control"
                                         ]
                                     }
                                 },

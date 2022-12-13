@@ -3,7 +3,7 @@ theme = 'catppuccin_macchiato'
 [editor]
 auto-completion = true
 auto-format = true
-scrolloff = 8
+scrolloff = 999
 mouse = false
 middle-click-paste = false
 line-number = "relative"
@@ -31,15 +31,15 @@ character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
 skip-levels = 1
 
 [editor.file-picker]
-hidden = false
-parents = false
-ignore = false
-git-ignore = false
-git-global = false
-git-exclude = false
+hidden = true
+parents = true
+ignore = true
+git-ignore = true
+git-global = true
+git-exclude = true
 
 [keys.normal]
 
 [keys.normal.space]
 "q" = ":q"
-"w" = ":w"
+"w" = ":update"

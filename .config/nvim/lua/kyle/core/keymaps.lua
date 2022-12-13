@@ -10,7 +10,7 @@ local opts = { silent = true } -- set options
 
 -- without copying into register
 keymap.set("n", "x", '"_x')
-keymap.set("n", "d", '"_d')
+-- keymap.set("n", "d", '"_d')
 keymap.set("n", "c", '"_c')
 
 -- window management
