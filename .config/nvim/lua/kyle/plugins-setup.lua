@@ -275,6 +275,12 @@ return packer.startup(function(use)
 
 	use({ "lukas-reineke/indent-blankline.nvim", event = "BufReadPre", after = "nvim-treesitter", opt = true })
 
+    use({
+        "mbbill/undotree",
+		event = "BufWinEnter",
+		opt = true,
+    })
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

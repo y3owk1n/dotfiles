@@ -74,6 +74,7 @@ local mappings = {
 	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
 	["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
 	["f"] = { "<cmd>Telescope find_files<CR>", "Find files" },
+	["u"] = { "<cmd>UndotreeToggle<CR>", "Undo Tree" },
 	p = {
 		name = "Packer",
 		c = { "<cmd>PackerCompile<cr>", "Compile" },
