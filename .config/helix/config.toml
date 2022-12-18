@@ -10,6 +10,7 @@ line-number = "relative"
 cursorline = true
 true-color = true
 color-modes = true
+gutters = ["diagnostics", "spacer", "line-numbers", "spacer", "diff"]
 
 [editor.statusline]
 left = ["mode", "spinner"]
