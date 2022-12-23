@@ -68,7 +68,8 @@ local opts = {
 }
 
 local mappings = {
-	["w"] = { "<cmd>:up<CR>", "Save" },
+	["w"] = { "<cmd>:up<CR>", "Update" },
+	["W"] = { "<cmd>w<CR>", "Save" },
 	["q"] = { "<cmd>q!<CR>", "Quit" },
 	["r"] = { "<cmd>:so<CR>", "Reload Config" },
 	["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
