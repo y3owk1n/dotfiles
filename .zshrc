@@ -21,7 +21,7 @@ alias brewrestartall="brew services restart --all"
 # general
 alias c="clear"
 alias x="exit"
-alias zc="nvim $HOME/.zshrc"
+alias zc="hx $HOME/.zshrc"
 alias zr="source $HOME/.zshrc"
 alias nvimc="nvim $HOME/.config/nvim"
 alias lvimc="lvim $HOME/.config/lvim"
@@ -32,6 +32,12 @@ alias ...="cd ../.."
 
 # speedtest alias
 alias st="speedtest"
+
+# ranger
+alias rr="ranger"
+
+# lazy git
+alias gg="lazygit"
 
 # ls alias to exa
 alias ls="exa --icons"
@@ -66,7 +72,8 @@ alias dd="yadm diff"
 alias dp="yadm push"
 
 # use lunarvim as editor for terminal
-export EDITOR='nvim'
+# export EDITOR='nvim'
+export EDITOR='hx'
 
 # ls after cd
 if ! (( $chpwd_functions[(I)chpwd_cdls] )); then
