@@ -1,60 +1,176 @@
 # TOML
 [[language]]
 name = "toml"
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 # JSON
 [[language]]
 name = "json"
+auto-format = true
+formatter = { command = 'npx', args = ["prettier", "--parser", "json"] }
 indent = { tab-width = 4, unit = "  " }
 
 # JS, JSX, TS, TSX
+# [[language]]
+# name = "javascript"
+# formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+# auto-format = true
+# indent = { tab-width = 4, unit = "  " }
+
+# [[language]]
+# name = "jsx"
+# formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+# auto-format = true
+# indent = { tab-width = 4, unit = "  " }
+
+# [[language]]
+# name = "typescript"
+# formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+# auto-format = true
+# indent = { tab-width = 4, unit = "  " }
+
+# [[language]]
+# name = "tsx"
+# formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+# auto-format = true
+# indent = { tab-width = 4, unit = "  " }
+
 [[language]]
 name = "javascript"
+roots = ["tailwind.config.js", "tailwind.config.cjs"]
+language-servers = [
+    { except-features = [
+        "format",
+    ], name = "typescript-language-server" },
+    "eslint",
+    "tailwindcss",
+]
+formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 [[language]]
 name = "jsx"
+roots = ["tailwind.config.js", "tailwind.config.cjs"]
+language-servers = [
+    { except-features = [
+        "format",
+    ], name = "typescript-language-server" },
+    "eslint",
+    "tailwindcss",
+]
+formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 [[language]]
 name = "typescript"
+roots = ["tailwind.config.js", "tailwind.config.cjs"]
+language-servers = [
+    { except-features = [
+        "format",
+    ], name = "typescript-language-server" },
+    "eslint",
+    "tailwindcss",
+]
+formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 [[language]]
 name = "tsx"
+roots = ["tailwind.config.js", "tailwind.config.cjs"]
+language-servers = [
+    { except-features = [
+        "format",
+    ], name = "typescript-language-server" },
+    "eslint",
+    "tailwindcss",
+]
+formatter = { command = "npx", args = ["prettier", "--parser", "typescript"] }
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
+
+[language-server.eslint]
+args = ["--stdio"]
+command = "vscode-eslint-language-server"
+
+[language-server.tailwindcss]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
+config = {}
+
+[language-server.eslint.config]
+format = true
+nodePath = ""
+onIgnoredFiles = "off"
+quiet = false
+rulesCustomizations = []
+run = "onType"
+validate = "on"
+
+[language-server.eslint.config.codeAction]
+[language-server.eslint.config.codeAction.disableRuleComment]
+enable = true
+location = "separateLine"
+
+[language-server.eslint.config.codeAction.showDocumentation]
+enable = true
+
+[language-server.eslint.config.codeActionOnSave]
+enable = true
+mode = "all"
+
+[language-server.eslint.config.workingDirectory]
+mode = "location"
+
+[language-server.typescript-language-server]
+args = ["--stdio"]
+command = "typescript-language-server"
+
+[language-server.typescript-language-server.config]
+documentFormatting = false
 
 # CSS & SCSS
 [[language]]
 name = "css"
+formatter = { command = "npx", args = ["prettier", "--parser", "css"] }
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 [[language]]
 name = "scss"
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 # HTML
 [[language]]
 name = "html"
+formatter = { command = 'npx', args = ["prettier", "--parser", "html"] }
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 # BASH
 [[language]]
 name = "bash"
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 # LUA
 [[language]]
 name = "lua"
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 # YAML
 [[language]]
 name = "yaml"
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
 
 # PRISMA
 [[language]]
 name = "prisma"
+auto-format = true
 indent = { tab-width = 4, unit = "  " }
