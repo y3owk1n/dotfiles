@@ -18,23 +18,28 @@ echo -e ">>> =================================================="
 
 # List of applications to install via Homebrew
 apps_to_install=(
+    alacritty
     autojump
-    rm-improved
     bat
-    yabai
     bun
-    nvm
-    minio
+    font-sf-mono-nerd-font-ligaturized
+    karabiner-elements
+    lazygit
+    lsd
     luajit
+    minio
     neovim
+    nvm
+    orbstack
+    pnpm
     pyenv
+    rm-improved
+    skhd
+    spaceid
+    yabai
+    yadm
     yamlfmt
     yarn
-    alacritty
-    karabiner-elements
-    font-sf-mono-nerd-font-ligaturized
-    spaceid
-    orbstack
 )
 
 echo -e ">>> Preparing homebrew apps..."
