@@ -63,3 +63,6 @@ opt.splitbelow = true -- split horizontal window to the bottom
 -- words
 opt.iskeyword:append("-") -- consider string-string as whole words
 opt.fillchars = { eob = " " }
+
+-- turn off swapfile
+opt.swapfile = false
