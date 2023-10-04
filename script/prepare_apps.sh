@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Make this script executable
-# >>> sudo bash ~/script/prepare_apps.sh
+# >>> chmod +x ~/script/prepare_apps.sh
+# >>> bash ~/script/prepare_apps.sh
 
 # Check if Homebrew is installed, and install it if not
 if ! command -v brew &>/dev/null; then
