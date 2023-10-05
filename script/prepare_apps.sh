@@ -8,57 +8,77 @@ echo -e "🖐️ --- Checking Homebrew... --------------------------------------
 
 # Check if Homebrew is installed, and install it if not
 if ! command -v brew &>/dev/null; then
-	echo -e "\t ❌ Homebrew is not installed. Installing..."
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-	echo -e "\t ✅ Homebrew is installed successfully"
+    echo -e "\t ❌ Homebrew is not installed. Installing..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    echo -e "\t ✅ Homebrew is installed successfully"
 else
-	echo -e "\t ✅ Homebrew is already installed"
+    echo -e "\t ✅ Homebrew is already installed"
 fi
 
 echo -e "✅ --- Homebrew Checks Completed --------------------------------------------------"
 
 echo
 
-# List of applications to install via Homebrew
-apps_to_install=(
-	alacritty
-	autojump
-	bat
-	bun
-	font-sf-mono-nerd-font-ligaturized
-	git-credential-manager-core
-	karabiner-elements
-	lazygit
-	lsd
-	luajit
-	minio
-	neovim
-	nvm
-	orbstack
-	pnpm
-	pyenv
-	rm-improved
-	skhd
-	spaceid
-	yabai
-	yadm
-	yamlfmt
-	yarn
+# List of formulae to install via Homebrew
+formulaes_to_install=(
+    autojump
+    bat
+    bun
+    lazygit
+    lsd
+    luajit
+    minio
+    neovim
+    nvm
+    pnpm
+    pyenv
+    rm-improved
+    skhd
+    yabai
+    yadm
+    yamlfmt
+    yarn
 )
 
-echo -e "🖐️  --- Preparing Homebrew Apps ----------------------------------------------------"
+# List of casks to install via Homebrew
+casks_to_install=(
+    alacritty
+    font-sf-mono-nerd-font-ligaturized
+    git-credential-manager
+    karabiner-elements
+    orbstack
+    spaceid
+)
+
+echo -e "🖐️  --- Preparing Homebrew Formulaes ------------------------------------------------"
 
 # Loop through the list and install the applications
-for app in "${apps_to_install[@]}"; do
-	if brew list "$app" &>/dev/null; then
-		echo -e "\t ✅ $app is already installed."
-	else
-		echo -e "\t Installing $app..."
-		brew install "$app"
-	fi
+for formulae in "${formulaes_to_install[@]}"; do
+    if brew list "$formulae" &>/dev/null; then
+        echo -e "\t ✅ $formulae is already installed."
+    else
+        echo -e "\t Installing $formulae..."
+        brew install "$formulae"
+    fi
 done
 
-echo -e "✅ --- All Homebrew apps are installed --------------------------------------------"
+echo -e "✅ --- All Homebrew Formulaes are installed -----------------------------------------"
+
+echo
+
+echo -e "🖐️  --- Preparing Homebrew Casks ----------------------------------------------------"
+
+# Loop through the list and install the applications
+for cask in "${casks_to_install[@]}"; do
+    if brew list "$cask" &>/dev/null; then
+        echo -e "\t ✅ $cask is already installed."
+    else
+        echo -e "\t Installing $cask..."
+        brew install --cask "$cask"
+    fi
+done
+
+echo -e "✅ --- All Homebrew Casks are installed --------------------------------------------"
 
 echo
 
@@ -69,15 +89,15 @@ source ~/.nvm/nvm.sh
 
 # Check if Node.js is already installed
 if ! nvm ls | grep -q "lts/*"; then
-	# Install the latest LTS version of Node.js
-	echo -e "\t Installing the latest LTS version of Node.js..."
-	nvm install --lts
+    # Install the latest LTS version of Node.js
+    echo -e "\t Installing the latest LTS version of Node.js..."
+    nvm install --lts
 
-	# Set the latest LTS version as the default
-	nvm alias default "lts/*"
-	echo -e "\t ✅ Node.js (LTS) is installed succesfully."
+    # Set the latest LTS version as the default
+    nvm alias default "lts/*"
+    echo -e "\t ✅ Node.js (LTS) is installed succesfully."
 else
-	echo -e "\t ✅ Node.js (LTS) is already installed."
+    echo -e "\t ✅ Node.js (LTS) is already installed."
 fi
 
 # Display Node.js and NPM versions
