@@ -34,6 +34,9 @@ alias lsa="lsd -la"
 # cat to bat
 alias cat="bat -pp"
 
+# ollama
+alias chat="ollama run mistral"
+
 export EDITOR='nvim'
 
 # ls after cd
@@ -60,3 +63,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -f /opt/homebrew/etc/profile.d/autojump.sh ] && . /opt/homebrew/etc/profile.d/autojump.sh
 
 export PATH=$(pyenv root)/shims:$PATH
+
+# pnpm
+export PNPM_HOME="/Users/kylewong/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
