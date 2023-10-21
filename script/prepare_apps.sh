@@ -61,6 +61,7 @@ casks_to_install=(
     karabiner-elements
     orbstack
     spaceid
+    pngpaste
 )
 
 echo -e "🖐️  --- Preparing Homebrew Taps ------------------------------------------------"
