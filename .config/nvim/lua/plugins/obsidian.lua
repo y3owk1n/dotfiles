@@ -1,23 +1,19 @@
+local obsidian = require("utils.obsidian")
+
 return {
     "epwalsh/obsidian.nvim",
     lazy = true,
+    enabled = obsidian.findRoot(),
     event = {
-        -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-        -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-        "VimEnter "
-            .. vim.fn.expand("~")
-            .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents",
+        "VimEnter *",
         "BufReadPre " .. vim.fn.expand("~") .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/**.md",
         "BufNewFile " .. vim.fn.expand("~") .. "/Library/Mobile Documents/iCloud~md~obsidian/Documents/**.md",
-        -- "BufReadPre path/to/my-vault/**.md",
-        -- "BufNewFile path/to/my-vault/**.md",
     },
     dependencies = {
         -- Required.
         "nvim-lua/plenary.nvim",
         "nvim-telescope/telescope.nvim",
         "hrsh7th/nvim-cmp",
-
         -- see below for full list of optional dependencies 👇
     },
     opts = {
