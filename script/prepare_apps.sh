@@ -50,6 +50,7 @@ formulaes_to_install=(
     yadm
     yamlfmt
     yarn
+    fd
 )
 
 # List of casks to install via Homebrew
