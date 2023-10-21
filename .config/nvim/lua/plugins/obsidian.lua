@@ -68,5 +68,13 @@ return {
         -- table will overwrite existing ones. Otherwise a warning is printed
         -- and the mappings are not applied.
         overwrite_mappings = true,
+
+        -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
+        -- URL it will be ignored but you can customize this behavior here.
+        follow_url_func = function(url)
+            -- Open the URL in the default web browser.
+            vim.fn.jobstart({ "open", url }) -- Mac OS
+            -- vim.fn.jobstart({"xdg-open", url})  -- linux
+        end,
     },
 }
