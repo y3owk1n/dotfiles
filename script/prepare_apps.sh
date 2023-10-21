@@ -23,6 +23,13 @@ echo
 
 to_tap=(
     homebrew/cask-fonts
+    homebrew/services
+    koekeishiya/formulae
+    microsoft/git
+    minio/stable
+    oven-sh/bun
+    shaunsingh/sfmono-nerd-font-ligaturized
+    stripe/stripe-cli
 )
 
 formulaes_to_install=(
@@ -59,8 +66,8 @@ casks_to_install=(
 echo -e "🖐️  --- Preparing Homebrew Taps ------------------------------------------------"
 # Loop through the list and install the applications
 for tap in "${to_tap[@]}"; do
-    if brew list "$tap" &>/dev/null; then
-        echo -e "\t ✅ $tap is already installed."
+    if brew tap "$tap" &>/dev/null; then
+        echo -e "\t ✅ $tap is already tapped."
     else
         echo -e "\t Installing $tap..."
         brew tap "$tap"
