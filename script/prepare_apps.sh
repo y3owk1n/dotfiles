@@ -51,6 +51,7 @@ formulaes_to_install=(
     yamlfmt
     yarn
     fd
+    pngpaste
 )
 
 # List of casks to install via Homebrew
@@ -62,7 +63,6 @@ casks_to_install=(
     karabiner-elements
     orbstack
     spaceid
-    pngpaste
 )
 
 echo -e "🖐️  --- Preparing Homebrew Taps ------------------------------------------------"
