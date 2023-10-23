@@ -24,7 +24,7 @@ return {
             },
             {
                 name = "traworld",
-                path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Kyle Traworld/",
+                path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Traworld/",
             },
         },
 
@@ -53,6 +53,12 @@ return {
             -- E.g. "[[Foo" completes to "[[foo|Foo]]" assuming "foo" is the ID of the note.
             prepend_note_id = true,
         },
+
+        -- Optional, sort search results by "path", "modified", "accessed", or "created".
+        -- The recommend value is "modified" and `true` for `sort_reversed`, which means, for example `:ObsidianQuickSwitch`
+        -- will show the notes sorted by latest modified time
+        sort_by = "modified",
+        sort_reversed = true,
 
         -- Optional, key mappings.
         mappings = {
