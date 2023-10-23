@@ -26,7 +26,7 @@ alias ...="cd ../.."
 
 # obsidian folder
 alias obs-kyle="cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Kyle/ && nvim ."
-alias obs-traworld="cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Kyle\ Traworld/ && nvim ."
+alias obs-traworld="cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Traworld/ && nvim ."
 
 # brew
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
