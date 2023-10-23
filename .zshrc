@@ -20,9 +20,13 @@ alias c="clear"
 alias x="exit"
 alias zc="nvim $HOME/.zshrc"
 alias zr="source $HOME/.zshrc"
-alias nvimc="nvim $HOME/.config/nvim"
+alias nvimc="cd $HOME/.config/nvim && nvim ."
 alias ..="cd .."
 alias ...="cd ../.."
+
+# obsidian folder
+alias obs-kyle="cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Kyle/ && nvim ."
+alias obs-traworld="cd $HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/Kyle\ Traworld/ && nvim ."
 
 # brew
 alias brewup='brew update; brew upgrade; brew cleanup; brew doctor'
@@ -67,7 +71,7 @@ export PATH=$(pyenv root)/shims:$PATH
 # pnpm
 export PNPM_HOME="/Users/kylewong/Library/pnpm"
 case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end

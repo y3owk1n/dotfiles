@@ -20,6 +20,18 @@ echo -e "✅ --- Homebrew Checks Completed -------------------------------------
 echo
 
 # List of formulae to install via Homebrew
+
+to_tap=(
+    homebrew/cask-fonts
+    homebrew/services
+    koekeishiya/formulae
+    microsoft/git
+    minio/stable
+    oven-sh/bun
+    shaunsingh/sfmono-nerd-font-ligaturized
+    stripe/stripe-cli
+)
+
 formulaes_to_install=(
     autojump
     bat
@@ -38,20 +50,35 @@ formulaes_to_install=(
     yadm
     yamlfmt
     yarn
+    fd
 )
 
 # List of casks to install via Homebrew
 casks_to_install=(
     alacritty
+    font-meslo-lg-nerd-font
     font-sf-mono-nerd-font-ligaturized
     git-credential-manager
     karabiner-elements
     orbstack
     spaceid
+    pngpaste
 )
 
-echo -e "🖐️  --- Preparing Homebrew Formulaes ------------------------------------------------"
+echo -e "🖐️  --- Preparing Homebrew Taps ------------------------------------------------"
+# Loop through the list and install the applications
+for tap in "${to_tap[@]}"; do
+    if brew tap "$tap" &>/dev/null; then
+        echo -e "\t ✅ $tap is already tapped."
+    else
+        echo -e "\t Installing $tap..."
+        brew tap "$tap"
+    fi
+done
 
+echo -e "✅ --- All Homebrew Taps are installed -----------------------------------------"
+
+echo -e "🖐️  --- Preparing Homebrew Formulaes ------------------------------------------------"
 # Loop through the list and install the applications
 for formulae in "${formulaes_to_install[@]}"; do
     if brew list "$formulae" &>/dev/null; then
