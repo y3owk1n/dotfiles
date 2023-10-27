@@ -16,6 +16,13 @@ return {
         "hrsh7th/nvim-cmp",
         -- see below for full list of optional dependencies 👇
     },
+    keys = {
+        { "<localleader>o", "<cmd>ObsidianOpen<CR>", desc = "Open in Obsidian" },
+        { "<localleader>n", "<cmd>ObsidianNew<CR>", desc = "New note" },
+        { "<localleader>b", "<cmd>ObsidianBackLinks<CR>", desc = "Backlinks list" },
+        { "<localleader>t", "<cmd>ObsidianToday<CR>", desc = "Today Note" },
+        { "<localleader>y", "<cmd>ObsidianYesterday<CR>", desc = "Yesterday Note" },
+    },
     opts = {
         workspaces = {
             {

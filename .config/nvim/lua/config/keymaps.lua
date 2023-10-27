@@ -71,10 +71,3 @@ map("n", "n", "nzzzv", { desc = "Search next and center" })
 map("n", "N", "Nzzzv", { desc = "Search previous and center" })
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move line up" })
 map("v", "K", ":m '>-2<cr>gv=gv", { desc = "Move line down" })
-
--- obsidian
-map("n", "<localleader>o", ":ObsidianOpen<CR>", { desc = "Open in Obsidian" })
-map("n", "<localleader>n", ":ObsidianNew<CR>", { desc = "New note" })
-map("n", "<localleader>b", ":ObsidianBackLinks<CR>", { desc = "Backlinks list" })
-map("n", "<localleader>t", ":ObsidianToday<CR>", { desc = "Today Note" })
-map("n", "<localleader>y", ":ObsidianYesterday<CR>", { desc = "Yesterday Note" })
