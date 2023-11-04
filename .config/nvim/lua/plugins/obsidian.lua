@@ -77,10 +77,6 @@ return {
                 opts = { noremap = false, expr = true, buffer = true },
             },
         },
-        -- Optional, if set to true, the specified mappings in the `mappings`
-        -- table will overwrite existing ones. Otherwise a warning is printed
-        -- and the mappings are not applied.
-        overwrite_mappings = true,
 
         -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
         -- URL it will be ignored but you can customize this behavior here.
