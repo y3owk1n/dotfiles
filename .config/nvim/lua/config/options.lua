@@ -4,6 +4,7 @@
 
 local opt = vim.opt
 local global = vim.g
+local cmd = vim.cmd
 
 -- disable some extension providers
 global.loaded_python3_provider = 0
@@ -66,3 +67,7 @@ opt.fillchars = { eob = " " }
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- enable undercurl
+cmd([[let &t_Cs = "\e[4:3m]"]])
+cmd([[let &t_Ce = "\e[4:0m]"]])
