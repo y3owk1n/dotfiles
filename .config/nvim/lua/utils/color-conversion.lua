@@ -80,7 +80,6 @@ end
  * @param   Number  l       The lightness
  * @return  Array           The RGB representation
 ]]
-
 ---@param h integer
 ---@param s integer
 ---@param l integer
