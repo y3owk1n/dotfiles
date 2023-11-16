@@ -95,7 +95,7 @@ function M.hslToRgb(h, s, l)
         ---@param q integer
         ---@param t integer
         ---@return integer
-        function hue2rgb(p, q, t)
+        local function hue2rgb(p, q, t)
             if t < 0 then
                 t = t + 1
             end
