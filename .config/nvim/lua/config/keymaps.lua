@@ -71,3 +71,10 @@ map("n", "n", "nzzzv", { desc = "Search next and center" })
 map("n", "N", "Nzzzv", { desc = "Search previous and center" })
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move line up" })
 map("v", "K", ":m '>-2<cr>gv=gv", { desc = "Move line down" })
+
+-- color conversion
+map("n", "<leader>ch", function()
+    require("utils.color-conversion").replaceHexWithHSL()
+end, {
+    desc = "Replace Hex With HSL",
+})
