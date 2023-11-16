@@ -15,6 +15,7 @@ global.loaded_perl_provider = 0
 -- encoding
 opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
+vim.scriptencoding = "utf-8"
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
@@ -71,3 +72,7 @@ opt.swapfile = false
 -- enable undercurl
 cmd([[let &t_Cs = "\e[4:3m]"]])
 cmd([[let &t_Ce = "\e[4:0m]"]])
+
+if vim.fn.has("nvim-0.8") == 1 then
+    vim.opt.cmdheight = 0
+end
