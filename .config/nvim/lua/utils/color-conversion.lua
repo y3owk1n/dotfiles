@@ -4,6 +4,8 @@ local M = {}
 
 local hexChars = "0123456789abcdef"
 
+---@param hex string
+---@return table
 function M.hex_to_rgb(hex)
     hex = string.lower(hex)
     local ret = {}
@@ -12,6 +14,7 @@ function M.hex_to_rgb(hex)
         local char2 = string.sub(hex, i * 2 + 3, i * 2 + 3)
         local digit1 = string.find(hexChars, char1) - 1
         local digit2 = string.find(hexChars, char2) - 1
+        ---@type integer
         ret[i + 1] = (digit1 * 16 + digit2) / 255.0
     end
     return ret
@@ -28,7 +31,12 @@ end
  * @param   Number  b       The blue color value
  * @return  Array           The HSL representation
 ]]
+---@param r integer
+---@param g integer
+---@param b integer
+---@return integer, integer, integer
 function M.rgbToHsl(r, g, b)
+    ---@type integer, integer
     local max, min = math.max(r, g, b), math.min(r, g, b)
     local h = 0
     local s = 0
@@ -72,12 +80,21 @@ end
  * @param   Number  l       The lightness
  * @return  Array           The RGB representation
 ]]
+---@param h integer
+---@param s integer
+---@param l integer
+---@return integer, integer, integer
 function M.hslToRgb(h, s, l)
+    ---@type integer, integer, integer
     local r, g, b
 
     if s == 0 then
         r, g, b = l, l, l -- achromatic
     else
+        ---@param p integer
+        ---@param q integer
+        ---@param t integer
+        ---@return integer
         function hue2rgb(p, q, t)
             if t < 0 then
                 t = t + 1
@@ -97,6 +114,7 @@ function M.hslToRgb(h, s, l)
             return p
         end
 
+        ---@type integer
         local q
         if l < 0.5 then
             q = l * (1 + s)
@@ -113,6 +131,8 @@ function M.hslToRgb(h, s, l)
     return r * 255, g * 255, b * 255
 end
 
+---@param hex string
+---@return string
 function M.hexToHSL(hex)
     local rgb = M.hex_to_rgb(hex)
     local h, s, l = M.rgbToHsl(rgb[1], rgb[2], rgb[3])
@@ -127,6 +147,10 @@ end
  * @param   Number  l       The lightness
  * @return  String           The hex representation
 ]]
+---@param h integer
+---@param s integer
+---@param l integer
+---@return string
 function M.hslToHex(h, s, l)
     local r, g, b = M.hslToRgb(h / 360, s / 100, l / 100)
 
