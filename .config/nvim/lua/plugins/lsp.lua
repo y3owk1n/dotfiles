@@ -22,7 +22,6 @@ return {
         opts = {
             format = { timeout_ms = 3000 },
             inlay_hints = { enabled = true },
-            ---@type lspconfig.options
             servers = {
                 cssls = {},
                 tailwindcss = {
