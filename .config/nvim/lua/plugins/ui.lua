@@ -3,6 +3,14 @@ return {
         "rcarriga/nvim-notify",
         opts = {
             timeout = 5000,
+            background_colour = "#181825",
+        },
+    },
+    {
+        "nvim-lualine/lualine.nvim",
+        event = "ColorScheme",
+        opts = {
+            theme = "rose-pine",
         },
     },
     {

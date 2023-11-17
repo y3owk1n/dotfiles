@@ -5,22 +5,26 @@ return {
         lazy = true,
         priority = 1000,
         name = "rose-pine",
-        config = function(_, opts)
-            require("rose-pine").setup(opts)
-        end,
-        opts = function()
-            return {
-                disable_background = true,
-                disable_float_background = true,
-            }
-        end,
+        opts = {
+            --- @usage 'auto'|'main'|'moon'|'dawn'
+            variant = "moon",
+            dark_variant = "moon",
+            highlight_groups = {
+                TelescopeBorder = { fg = "highlight_high", bg = "none" },
+                TelescopeNormal = { bg = "none" },
+                TelescopePromptNormal = { bg = "base" },
+                TelescopeResultsNormal = { fg = "subtle", bg = "none" },
+                TelescopeSelection = { fg = "text", bg = "base" },
+                TelescopeSelectionCaret = { fg = "rose", bg = "rose" },
+            },
+        },
     },
 
     -- Configure LazyVim to load rose-pine-moon
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "rose-pine-moon",
+            colorscheme = "rose-pine",
         },
     },
 }
