@@ -52,6 +52,7 @@ formulaes_to_install=(
     yarn
     fd
     pngpaste
+    tmux
 )
 
 # List of casks to install via Homebrew
