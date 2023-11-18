@@ -38,9 +38,6 @@ alias lsa="lsd -la"
 # cat to bat
 alias cat="bat -pp"
 
-# ollama
-alias chat="ollama run mistral"
-
 export EDITOR='nvim'
 
 # Always work in a tmux session if tmux is installed
