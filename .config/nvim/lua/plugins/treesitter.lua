@@ -21,6 +21,7 @@ return {
                 "http",
                 "sql",
                 "svelte",
+                "jsonc",
             },
         },
         config = function(_, opts)

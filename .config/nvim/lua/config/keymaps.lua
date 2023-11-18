@@ -51,12 +51,8 @@ del("n", "]b")
 del("n", "[b")
 
 -- window
-map("n", "_", "<C-W>s", { desc = "Split window below" })
+map("n", "-", "<C-W>s", { desc = "Split window below" })
 map("n", "|", "<C-W>v", { desc = "Split window right" })
-map("n", "<leader>wh", "<C-w>h", { desc = "Go to left window" })
-map("n", "<leader>wj", "<C-w>j", { desc = "Go to lower window" })
-map("n", "<leader>wk", "<C-w>k", { desc = "Go to upper window" })
-map("n", "<leader>wl", "<C-w>l", { desc = "Go to right window" })
 map("n", "<leader>wx", ":close<CR>", { desc = "Close current split" })
 
 -- telescope
