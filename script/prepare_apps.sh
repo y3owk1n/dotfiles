@@ -58,6 +58,7 @@ formulaes_to_install=(
 # List of casks to install via Homebrew
 casks_to_install=(
     alacritty
+    font-geist-mono-nerd-font
     font-meslo-lg-nerd-font
     font-sf-mono-nerd-font-ligaturized
     git-credential-manager
