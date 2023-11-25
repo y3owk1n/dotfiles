@@ -1,32 +1,33 @@
 local obsidian = require("utils.obsidian")
 
 return {
-    {
-        "postfen/clipboard-image.nvim",
-        lazy = true,
-        event = {
-            "BufReadPre",
-            "BufNewFile",
-        },
-        opts = function()
-            local opts = {}
-
-            if obsidian.findRoot() then
-                opts = {
-                    markdown = {
-                        img_dir = { "98 - attachments" }, -- Use table for nested dir (New feature form PR #20)
-                        img_dir_text = "",
-                        affix = "![[%s]]", -- Multi lines affix
-                    },
-                }
-            end
-            return opts
-        end,
-    },
+    -- {
+    --     "postfen/clipboard-image.nvim",
+    --     lazy = true,
+    --     event = {
+    --         "BufReadPre",
+    --         "BufNewFile",
+    --     },
+    --     opts = function()
+    --         local opts = {}
+    --
+    --         if obsidian.findRoot() then
+    --             opts = {
+    --                 markdown = {
+    --                     img_dir = { "98 - attachments" }, -- Use table for nested dir (New feature form PR #20)
+    --                     img_dir_text = "",
+    --                     affix = "![[%s]]", -- Multi lines affix
+    --                 },
+    --             }
+    --         end
+    --         return opts
+    --     end,
+    -- },
     {
         "epwalsh/obsidian.nvim",
         version = "*",
         lazy = true,
+        ft = "markdown",
         enabled = obsidian.findRoot(),
         event = {
             "VimEnter *",
@@ -46,6 +47,8 @@ return {
             { "<localleader>b", "<cmd>ObsidianBackLinks<CR>", desc = "Backlinks list" },
             { "<localleader>t", "<cmd>ObsidianToday<CR>", desc = "Today Note" },
             { "<localleader>y", "<cmd>ObsidianYesterday<CR>", desc = "Yesterday Note" },
+            { "<localleader>c", "<cmd>lua require('obsidian').util.toggle_checkbox()<cr>", desc = "Toggle Checkbox" },
+            { "<localleader>i", "<cmd>ObsidianPasteImg<cr>", desc = "Paste Image" },
         },
         opts = {
             workspaces = {
@@ -85,12 +88,6 @@ return {
                 prepend_note_id = true,
             },
 
-            -- Optional, sort search results by "path", "modified", "accessed", or "created".
-            -- The recommend value is "modified" and `true` for `sort_reversed`, which means, for example `:ObsidianQuickSwitch`
-            -- will show the notes sorted by latest modified time
-            sort_by = "modified",
-            sort_reversed = true,
-
             -- Optional, key mappings.
             mappings = {
                 -- Overrides the 'gf' mapping to work on markdown/wiki links within your vault.
@@ -110,32 +107,71 @@ return {
                 -- vim.fn.jobstart({"xdg-open", url})  -- linux
             end,
 
+            -- Optional, sort search results by "path", "modified", "accessed", or "created".
+            -- The recommend value is "modified" and `true` for `sort_reversed`, which means, for example `:ObsidianQuickSwitch`
+            -- will show the notes sorted by latest modified time
+            sort_by = "modified",
+            sort_reversed = true,
+
             -- Optional, configure additional syntax highlighting / extmarks.
             ui = {
                 enable = true, -- set to false to disable all additional syntax features
-                tick = 200, -- update rate in milliseconds
-                chars = {
-                    todo_box = "󰄱",
-                    done_box = "",
-                    right_arrow_box = "",
-                    tilde_box = "󰰱",
-                    url = "",
+                update_debounce = 200, -- update rate in milliseconds
+                checkboxes = {
+                    -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
+                    [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
+                    ["x"] = { char = "", hl_group = "ObsidianDone" },
+                    [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+                    ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+                    -- Replace the above with this if you don't have a patched font:
+                    -- [" "] = { char = "☐", hl_group = "ObsidianTodo" },
+                    -- ["x"] = { char = "✔", hl_group = "ObsidianDone" },
+
+                    -- You can also add more custom ones...
                 },
-                -- Change to this if you don't have a patched font:
-                -- chars = {
-                --   todo_box = "☐",
-                --   done_box = "✔",
-                --   right_arrow_box = "⇨",
-                --   tilde_box = "🅧",
-                --   url = "",
-                -- },
-                colors = {
-                    todo_box = "#f78c6c",
-                    done_box = "#89ddff",
-                    right_arrow_box = "#f78c6c",
-                    tilde_box = "#ff5370",
-                    ref = "#c792ea",
+                external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
+                -- Replace the above with this if you don't have a patched font:
+                -- external_link_icon = { char = "", hl_group = "ObsidianExtLinkIcon" },
+                reference_text = { hl_group = "ObsidianRefText" },
+                highlight_text = { hl_group = "ObsidianHighlightText" },
+                tags = { hl_group = "ObsidianTag" },
+                hl_groups = {
+                    -- The options are passed directly to `vim.api.nvim_set_hl()`. See `:help nvim_set_hl`.
+                    ObsidianTodo = { bold = true, fg = "#f78c6c" },
+                    ObsidianDone = { bold = true, fg = "#89ddff" },
+                    ObsidianRightArrow = { bold = true, fg = "#f78c6c" },
+                    ObsidianTilde = { bold = true, fg = "#ff5370" },
+                    ObsidianRefText = { underline = true, fg = "#c792ea" },
+                    ObsidianExtLinkIcon = { fg = "#c792ea" },
+                    ObsidianTag = { italic = true, fg = "#89ddff" },
+                    ObsidianHighlightText = { bg = "#75662e" },
                 },
+            },
+
+            attachments = {
+                -- The default folder to place images in via `:ObsidianPasteImg`.
+                -- If this a relative path it will be interpreted as relative to the vault root.
+                -- You can always override this per image by passing a full path to the command instead of just a filename.
+                img_folder = "98 - attachments", -- This is the default
+                -- A function that determines the text to insert in the note when pasting an image.
+                -- It takes two arguments, the `obsidian.Client` and a plenary `Path` to the image file.
+                -- The is the default implementation.
+                ---@param client obsidian.Client
+                ---@param path Path the absolute path to the image file
+                ---@return string
+                img_text_func = function(client, path)
+                    local link_path
+                    local vault_relative_path = client:vault_relative_path(path)
+                    if vault_relative_path ~= nil then
+                        -- Use relative path if the image is saved in the vault dir.
+                        link_path = vault_relative_path
+                    else
+                        -- Otherwise use the absolute path.
+                        link_path = tostring(path)
+                    end
+                    local display_name = vim.fs.basename(link_path)
+                    return string.format("![[%s]]", link_path)
+                end,
             },
         },
     },
