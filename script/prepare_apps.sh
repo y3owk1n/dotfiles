@@ -28,7 +28,6 @@ to_tap=(
     microsoft/git
     minio/stable
     oven-sh/bun
-    shaunsingh/sfmono-nerd-font-ligaturized
     stripe/stripe-cli
 )
 
@@ -59,8 +58,6 @@ formulaes_to_install=(
 casks_to_install=(
     alacritty
     font-geist-mono-nerd-font
-    font-meslo-lg-nerd-font
-    font-sf-mono-nerd-font-ligaturized
     git-credential-manager
     karabiner-elements
     orbstack
