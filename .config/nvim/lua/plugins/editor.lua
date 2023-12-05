@@ -141,10 +141,26 @@ return {
     },
     {
         "ThePrimeagen/harpoon",
-        keys = {
-            { "<leader>he", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", desc = "Menu" },
-            { "<leader>ha", "<cmd>lua require('harpoon.mark').add_file()<cr>", desc = "Add mark" },
-        },
+        keys = function()
+            local harpoon_ui = require("harpoon.ui")
+            local harpoon_mark = require("harpoon.mark")
+            return {
+                {
+                    "<leader>he",
+                    function()
+                        harpoon_ui.toggle_quick_menu()
+                    end,
+                    desc = "Menu",
+                },
+                {
+                    "<leader>ha",
+                    function()
+                        harpoon_mark.add_file()
+                    end,
+                    desc = "Add mark",
+                },
+            }
+        end,
         config = function(_, opts)
             require("harpoon").setup(opts)
         end,
