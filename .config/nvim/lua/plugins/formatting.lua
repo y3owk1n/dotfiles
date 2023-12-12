@@ -16,16 +16,34 @@ return {
                     nls.builtins.diagnostics.jsonlint,
                     nls.builtins.diagnostics.yamllint,
                     nls.builtins.diagnostics.zsh,
-                    nls.builtins.formatting.biome.with({
-                        args = {
-                            "check",
-                            "--apply-unsafe",
-                            "--skip-errors",
-                            "$FILENAME",
-                        },
-                    }),
+                    nls.builtins.formatting.prettierd,
+                    nls.builtins.formatting.biome,
                 },
             }
         end,
+    },
+    {
+        "stevearc/conform.nvim",
+        optional = true,
+        opts = {
+            formatters_by_ft = {
+                ["javascript"] = { "biome" },
+                ["javascriptreact"] = { "biome" },
+                ["typescript"] = { "biome" },
+                ["typescriptreact"] = { "biome" },
+                ["vue"] = { "prettier" },
+                ["css"] = { "prettier" },
+                ["scss"] = { "prettier" },
+                ["less"] = { "prettier" },
+                ["html"] = { "prettier" },
+                ["json"] = { "biome" },
+                ["jsonc"] = { "biome" },
+                ["yaml"] = { "prettier" },
+                ["markdown"] = { "prettier" },
+                ["markdown.mdx"] = { "prettier" },
+                ["graphql"] = { "prettier" },
+                ["handlebars"] = { "prettier" },
+            },
+        },
     },
 }

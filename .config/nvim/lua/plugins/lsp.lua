@@ -8,6 +8,7 @@ return {
                 "json-lsp",
                 "jsonlint",
                 "lua-language-server",
+                "prettierd",
                 "biome",
                 "stylua",
                 "tailwindcss-language-server",
