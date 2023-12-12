@@ -8,7 +8,7 @@ return {
                 "json-lsp",
                 "jsonlint",
                 "lua-language-server",
-                "prettierd",
+                "biome",
                 "stylua",
                 "tailwindcss-language-server",
                 "typescript-language-server",
@@ -58,7 +58,11 @@ return {
                             },
                         },
                     },
+                    on_attach = function(client)
+                        client.server_capabilities.documentFormattingProvider = false
+                    end,
                 },
+                biome = {},
                 html = {},
                 yamlls = {
                     settings = {

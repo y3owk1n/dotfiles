@@ -16,7 +16,14 @@ return {
                     nls.builtins.diagnostics.jsonlint,
                     nls.builtins.diagnostics.yamllint,
                     nls.builtins.diagnostics.zsh,
-                    nls.builtins.formatting.prettierd,
+                    nls.builtins.formatting.biome.with({
+                        args = {
+                            "check",
+                            "--apply-unsafe",
+                            "--skip-errors",
+                            "$FILENAME",
+                        },
+                    }),
                 },
             }
         end,
