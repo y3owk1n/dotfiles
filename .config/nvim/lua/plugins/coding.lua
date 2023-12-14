@@ -11,6 +11,7 @@ return {
                 noremap = true,
                 silent = true,
                 expr = false,
+                desc = "Refactor",
             },
         },
         opts = {},
@@ -25,7 +26,9 @@ return {
         -- Incremental rename
         "smjonas/inc-rename.nvim",
         cmd = "IncRename",
-        config = true,
+        config = function(_, opts)
+            require("inc_rename").setup(opts)
+        end,
     },
     {
         "ThePrimeagen/git-worktree.nvim",
