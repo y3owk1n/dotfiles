@@ -141,44 +141,30 @@ return {
     },
     {
         "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { { "nvim-lua/plenary.nvim" } },
         keys = function()
-            local harpoon_ui = require("harpoon.ui")
-            local harpoon_mark = require("harpoon.mark")
+            local harpoon = require("harpoon")
             return {
                 {
                     "<leader>he",
                     function()
-                        harpoon_ui.toggle_quick_menu()
+                        harpoon.ui:toggle_quick_menu(harpoon:list())
                     end,
                     desc = "Menu",
                 },
                 {
                     "<leader>ha",
                     function()
-                        harpoon_mark.add_file()
+                        harpoon:list():append()
                     end,
                     desc = "Add mark",
                 },
             }
         end,
         config = function(_, opts)
-            require("harpoon").setup(opts)
+            local harpoon = require("harpoon")
+            harpoon:setup(opts)
         end,
     },
-    -- {
-    --     "akinsho/toggleterm.nvim",
-    --     config = true,
-    --     cmd = "ToggleTerm",
-    --     keys = { { "<c-\\>", "<cmd>ToggleTerm<cr>", desc = "Toggle floating terminal" } },
-    --     opts = {
-    --         open_mapping = [[<c-\>]],
-    --         direction = "float",
-    --         shade_filetypes = {},
-    --         hide_numbers = true,
-    --         insert_mappings = true,
-    --         terminal_mappings = true,
-    --         start_in_insert = true,
-    --         close_on_exit = true,
-    --     },
-    -- },
 }
