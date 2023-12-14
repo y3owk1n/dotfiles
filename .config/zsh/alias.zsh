@@ -1,7 +1,8 @@
 # general
 alias c="clear"
 alias x="exit"
-alias zc="nvim $HOME/.zshrc"
+alias config="cd $HOME/.config && nvim ."
+alias zc="cd $HOME/.config/zsh && nvim ."
 alias zr="source $HOME/.zshrc"
 alias nvimc="cd $HOME/.config/nvim && nvim ."
 alias ..="cd .."
