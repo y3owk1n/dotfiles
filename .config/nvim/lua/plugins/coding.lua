@@ -11,6 +11,7 @@ return {
                 noremap = true,
                 silent = true,
                 expr = false,
+                desc = "Refactor",
             },
         },
         opts = {},
@@ -25,7 +26,43 @@ return {
         -- Incremental rename
         "smjonas/inc-rename.nvim",
         cmd = "IncRename",
-        config = true,
+        config = function(_, opts)
+            require("inc_rename").setup(opts)
+        end,
+    },
+    {
+        "ThePrimeagen/git-worktree.nvim",
+        keys = {
+            {
+                -- <Enter> - switches to that worktree
+                -- <c-d> - deletes that worktree
+                -- <c-f> - toggles forcing of the next deletion
+                "<leader>gwe",
+                function()
+                    require("telescope").extensions.git_worktree.git_worktrees()
+                end,
+                desc = "Explore Git Worktree",
+            },
+            {
+                "<leader>gwc",
+                function()
+                    require("telescope").extensions.git_worktree.create_git_worktree()
+                end,
+                desc = "Create Git Worktree",
+            },
+        },
+        opts = {
+            change_directory_command = "cd",
+            update_on_change = true,
+            update_on_change_command = "e .",
+            clearjumps_on_change = true,
+            autopush = false,
+        },
+        config = function(_, opts)
+            local git_worktree = require("git-worktree")
+
+            git_worktree.setup(opts)
+        end,
     },
     {
         -- Create annotations with one keybind, and jump your cursor in the inserted annotation
