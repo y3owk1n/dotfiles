@@ -98,16 +98,9 @@ return {
 
             opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
 
-            local borderstyle = {
-                border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-                winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,CursorLine:PmenuSel,Search:None",
-            }
-
             opts.window = {
-                documentation = {
-                    border = borderstyle.border,
-                    winhighlight = borderstyle.winhighlight,
-                },
+                completion = cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered(),
             }
 
             opts.mapping = vim.tbl_extend("force", opts.mapping, {
