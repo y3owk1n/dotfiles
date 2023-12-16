@@ -69,6 +69,7 @@ return {
                 leap = true,
                 lsp_trouble = true,
                 mason = true,
+                harpoon = true,
                 markdown = true,
                 mini = true,
                 native_lsp = {
