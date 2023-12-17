@@ -55,11 +55,7 @@ return {
                 operators = {},
             },
             color_overrides = {},
-            custom_highlights = function(colors)
-                return {
-                    CmpBorder = { fg = colors.surface2 },
-                }
-            end,
+            custom_highlights = {},
             integrations = {
                 aerial = true,
                 alpha = true,
@@ -91,7 +87,9 @@ return {
                 noice = true,
                 notify = true,
                 semantic_tokens = true,
-                telescope = true,
+                telescope = {
+                    enabled = true,
+                },
                 treesitter = true,
                 treesitter_context = true,
                 which_key = true,
