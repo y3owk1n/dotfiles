@@ -56,7 +56,12 @@ return {
                 operators = {},
             },
             color_overrides = {},
-            custom_highlights = {},
+            custom_highlights = function(colors)
+                return {
+                    NeoTreeNormal = { fg = colors.text, bg = colors.none },
+                    NeoTreeNormalNC = { fg = colors.text, bg = colors.none },
+                }
+            end,
             integrations = {
                 aerial = true,
                 alpha = true,
