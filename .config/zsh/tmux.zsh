@@ -5,9 +5,16 @@ if which tmux 2>&1 >/dev/null; then
         # Get the list of tmux sessions
         sessions=$(tmux list-sessions 2> /dev/null)
         if [ -n "$sessions" ]; then
-            # If sessions exist, attach to the first one
-            first_session=$(echo "$sessions" | awk -F: '{print $1}' | head -n 1)
-            tmux attach-session -t "$first_session"
+            # Check if "Hack" session exists in the list
+            hack_session=$(echo "$sessions" | grep -o 'Hack' | head -n 1)
+            if [ -n "$hack_session" ]; then
+                # If "Hack" session exists, attach to it
+                tmux attach-session -t "Hack"
+            else
+                # If "Hack" session not found, attach to the first one
+                first_session=$(echo "$sessions" | awk -F: '{print $1}' | head -n 1)
+                tmux attach-session -t "$first_session"
+            fi
         else
             # If no sessions exist, create and attach to "Hack"
             tmux new-session -s Hack
