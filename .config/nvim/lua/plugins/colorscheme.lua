@@ -30,7 +30,7 @@ return {
                 light = "latte",
                 dark = "macchiato",
             },
-            transparent_background = false, -- disables setting the background color.
+            transparent_background = true, -- disables setting the background color.
             show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
             term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
             dim_inactive = {
@@ -56,12 +56,7 @@ return {
                 operators = {},
             },
             color_overrides = {},
-            custom_highlights = function(colors)
-                return {
-                    NeoTreeNormal = { fg = colors.text, bg = colors.none },
-                    NeoTreeNormalNC = { fg = colors.text, bg = colors.none },
-                }
-            end,
+            custom_highlights = {},
             integrations = {
                 aerial = true,
                 alpha = true,
