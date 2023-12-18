@@ -1,5 +1,13 @@
 return {
     {
+        "nvim-neo-tree/neo-tree.nvim",
+        opts = {
+            window = {
+                position = "current",
+            },
+        },
+    },
+    {
         "alexghergh/nvim-tmux-navigation",
         keys = {
             { "<C-l>", "<Cmd>:NvimTmuxNavigateRight<cr>", desc = "Tmux Navigate Right" },
