@@ -63,6 +63,13 @@ casks_to_install=(
     karabiner-elements
     orbstack
     spaceid
+    appcleaner
+    stats
+    onyx
+    keka
+    kekaexternalhelper
+    imageoptim
+    dozer
 )
 
 echo -e "🖐️  --- Preparing Homebrew Taps ------------------------------------------------"
