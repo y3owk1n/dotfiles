@@ -48,9 +48,7 @@ formulaes_to_install=(
     yabai
     yadm
     yamlfmt
-    yarn
     fd
-    pngpaste
     tmux
     fzf
 )
@@ -69,7 +67,6 @@ casks_to_install=(
     keka
     kekaexternalhelper
     imageoptim
-    dozer
     whatsapp
 )
 
