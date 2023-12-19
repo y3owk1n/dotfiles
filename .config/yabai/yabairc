@@ -44,7 +44,7 @@ yabai -m space 6 --label "Work"
 yabai -m space 7 --label "Music"
 
 # Web browsers
-yabai -m rule --add app="^(Google Chrome|Safari|Microsoft Edge|Safari Technology Preview|Firefox)$" space=1
+yabai -m rule --add app="^(Google Chrome|Safari|Arc|Microsoft Edge|Safari Technology Preview|Firefox)$" space=1
 # Terminal
 yabai -m rule --add app="^(Terminal|Alacritty)$" space=2
 # Notes
@@ -54,11 +54,11 @@ yabai -m rule --add app="^(WhatsApp|Messages|chatMate for WhatsApp)$" space=4
 # Productivity
 yabai -m rule --add app="^(Mail|Calendar)$" space=5
 # Work
-yabai -m rule --add app="^(adobe XD|adobe illustrator|adobe photoshop)$" space=6
+yabai -m rule --add app="^(Adobe Photoshop 2024|Adobe Illustrator 2024)$" space=6
 # Music
 yabai -m rule --add app="^(Music)$" space=7
 
 # apps to not manage (ignore)
-yabai -m rule --add app="^(Finder|System Settings|Archive Utility|Microsoft Excel|Creative Cloud|Logi Options|Raycast|CleanMyMac X|Karabiner-Elements|Karabiner-EventViewer|Setapp|Stats|ClearVPN|DBngin|FaceTime|Loom|Tape)$" manage=off
+yabai -m rule --add app="^(Finder|System Settings|Archive Utility|Microsoft Excel|Creative Cloud|Logi Options|Raycast|Karabiner-Elements|Karabiner-EventViewer|Stats|FaceTime|Loom)$" manage=off
 
 echo "yabai configuration loaded.."
