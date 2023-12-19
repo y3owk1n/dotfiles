@@ -70,6 +70,7 @@ casks_to_install=(
     kekaexternalhelper
     imageoptim
     dozer
+    whatsapp
 )
 
 echo -e "🖐️  --- Preparing Homebrew Taps ------------------------------------------------"
