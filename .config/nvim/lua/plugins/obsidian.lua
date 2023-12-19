@@ -77,6 +77,14 @@ return {
                 },
             },
 
+            -- Optional, customize the backlinks interface.
+            backlinks = {
+                -- The default height of the backlinks pane.
+                height = 10,
+                -- Whether or not to wrap lines.
+                wrap = true,
+            },
+
             -- Optional, by default when you use `:ObsidianFollowLink` on a link to an external
             -- URL it will be ignored but you can customize this behavior here.
             follow_url_func = function(url)
@@ -84,6 +92,12 @@ return {
                 vim.fn.jobstart({ "open", url }) -- Mac OS
                 -- vim.fn.jobstart({"xdg-open", url})  -- linux
             end,
+
+            -- Optional, by default commands like `:ObsidianSearch` will attempt to use
+            -- telescope.nvim, fzf-lua, or fzf.vim (in that order), and use the
+            -- first one they find. You can set this option to tell obsidian.nvim to always use this
+            -- finder.
+            finder = "telescope.nvim",
 
             -- Optional, sort search results by "path", "modified", "accessed", or "created".
             -- The recommend value is "modified" and `true` for `sort_reversed`, which means, for example `:ObsidianQuickSwitch`

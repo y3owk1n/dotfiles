@@ -73,6 +73,9 @@ opt.swapfile = false
 cmd([[let &t_Cs = "\e[4:3m]"]])
 cmd([[let &t_Ce = "\e[4:0m]"]])
 
+-- Add astericks in block comments
+opt.formatoptions:append({ "r" })
+
 if vim.fn.has("nvim-0.8") == 1 then
     vim.opt.cmdheight = 0
 end
