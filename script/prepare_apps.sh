@@ -68,6 +68,7 @@ casks_to_install=(
     kekaexternalhelper
     imageoptim
     whatsapp
+    lulu
 )
 
 echo -e "🖐️  --- Preparing Homebrew Taps ------------------------------------------------"
