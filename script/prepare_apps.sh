@@ -4,6 +4,39 @@
 # >>> chmod +x ~/script/prepare_apps.sh
 # >>> bash ~/script/prepare_apps.sh
 
+# Function to install Homebrew taps
+install_tap() {
+    local tap=$1
+    if brew tap "$tap" &>/dev/null; then
+        echo -e "\t ✅ $tap is already tapped."
+    else
+        echo -e "\t Installing $tap..."
+        brew tap "$tap"
+    fi
+}
+
+# Function to install Homebrew formulae
+install_formula() {
+    local formula=$1
+    if brew list "$formula" &>/dev/null; then
+        echo -e "\t ✅ $formula is already installed."
+    else
+        echo -e "\t Installing $formula..."
+        brew install "$formula"
+    fi
+}
+
+# Function to install Homebrew casks
+install_cask() {
+    local cask=$1
+    if brew list "$cask" &>/dev/null; then
+        echo -e "\t ✅ $cask is already installed."
+    else
+        echo -e "\t Installing $cask..."
+        brew install --cask "$cask"
+    fi
+}
+
 echo -e "🖐️ --- Checking Homebrew... -------------------------------------------------------"
 
 # Check if Homebrew is installed, and install it if not
@@ -72,44 +105,31 @@ casks_to_install=(
 )
 
 echo -e "🖐️  --- Preparing Homebrew Taps ------------------------------------------------"
-# Loop through the list and install the applications
+# Install taps in parallel
 for tap in "${to_tap[@]}"; do
-    if brew tap "$tap" &>/dev/null; then
-        echo -e "\t ✅ $tap is already tapped."
-    else
-        echo -e "\t Installing $tap..."
-        brew tap "$tap"
-    fi
+    install_tap "$tap" &
 done
+wait
 
 echo -e "✅ --- All Homebrew Taps are installed -----------------------------------------"
 
 echo -e "🖐️  --- Preparing Homebrew Formulaes ------------------------------------------------"
-# Loop through the list and install the applications
+# Install formulae in parallel
 for formulae in "${formulaes_to_install[@]}"; do
-    if brew list "$formulae" &>/dev/null; then
-        echo -e "\t ✅ $formulae is already installed."
-    else
-        echo -e "\t Installing $formulae..."
-        brew install "$formulae"
-    fi
+    install_formula "$formulae" &
 done
+wait
 
 echo -e "✅ --- All Homebrew Formulaes are installed -----------------------------------------"
 
 echo
 
 echo -e "🖐️  --- Preparing Homebrew Casks ----------------------------------------------------"
-
-# Loop through the list and install the applications
+# Install casks in parallel
 for cask in "${casks_to_install[@]}"; do
-    if brew list "$cask" &>/dev/null; then
-        echo -e "\t ✅ $cask is already installed."
-    else
-        echo -e "\t Installing $cask..."
-        brew install --cask "$cask"
-    fi
+    install_cask "$cask" &
 done
+wait
 
 echo -e "✅ --- All Homebrew Casks are installed --------------------------------------------"
 
